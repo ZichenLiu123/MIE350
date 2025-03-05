@@ -1,7 +1,6 @@
 package com.example.cms.controller;
 
 import com.example.cms.controller.exceptions.RumNotFoundException;
-import com.example.cms.controller.exceptions.StudentNotFoundException;
 import com.example.cms.model.entities.Rum;
 import com.example.cms.model.repositories.RumRepository;
 import org.springframework.beans.factory.annotation.Autowired;

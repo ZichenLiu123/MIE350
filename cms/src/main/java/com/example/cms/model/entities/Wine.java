@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.lang.Nullable;
 
@@ -12,10 +14,13 @@ import org.springframework.lang.Nullable;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "Wine")
 
-public class Vodka extends Spirit {
+public class Wine extends Alcohol{
+    
+    @NotEmpty
+    private String type;
 
     @Nullable
-    private String flavor;
-    
+    private Integer age;
 }

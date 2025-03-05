@@ -13,9 +13,11 @@ import org.springframework.lang.Nullable;
 @Getter
 @Setter
 
-public class Vodka extends Spirit {
+public class Brandy extends Spirit {
+    @Nullable
+    private Integer age;
 
     @Nullable
-    private String flavor;
+    private String barrelType;
     
 }

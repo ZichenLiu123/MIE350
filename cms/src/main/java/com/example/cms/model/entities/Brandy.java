@@ -5,15 +5,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
+import org.springframework.lang.Nullable;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
 
-public class Spirit extends Alcohol{
-    @NotNull
-    private String type;
+public class Brandy extends Spirit {
+    @Nullable
+    private Integer age;
+
+    @Nullable
+    private String barrelType;
+    
 }

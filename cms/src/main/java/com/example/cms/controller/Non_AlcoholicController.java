@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.cms.controller.exceptions.Non_AlcoholicNotFoundException;
 import com.example.cms.model.entities.Non_Alcoholic;
@@ -45,7 +46,7 @@ public class Non_AlcoholicController {
                 .orElseThrow(() -> new Non_AlcoholicNotFoundException(id));
     }
 
-    @GetMapping("/non-carbonated")
+    @GetMapping("/carbonated")
     public List<Non_Alcoholic> getCarbonatedDrinks() {
         return repository.findByIsCarbonatedTrue();
     }
@@ -53,6 +54,11 @@ public class Non_AlcoholicController {
     @GetMapping("/non-carbonated")
     public List<Non_Alcoholic> getNonCarbonatedDrinks() {
         return repository.findByIsCarbonatedFalse();
+    }
+
+    @GetMapping("/search")
+    public List<Non_Alcoholic> searchAlcoholicEquivalent(@RequestParam String alcoholicEquivalent) {
+        return repository.findByAlcoholicEquivalentContainingIgnoreCase(alcoholicEquivalent);
     }
 
     @PutMapping("/{id}")

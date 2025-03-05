@@ -22,4 +22,5 @@ public interface Non_AlcoholicRepository extends JpaRepository<Non_Alcoholic, Lo
     
     List<Non_Alcoholic> findByIsCarbonatedTrue();
     List<Non_Alcoholic> findByIsCarbonatedFalse();
+    List<Non_Alcoholic> findByAlcoholicEquivalentContainingIgnoreCase(String alcoholicEquivalent);
 }

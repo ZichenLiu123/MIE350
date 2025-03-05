@@ -31,4 +31,7 @@ public class Non_Alcoholic {
     private Long amount;
 
     private Boolean isCarbonated;
+
+    @NotNull
+    private String alcoholicEquivalent;
 }

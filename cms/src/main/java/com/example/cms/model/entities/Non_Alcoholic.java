@@ -1,33 +1,34 @@
 package com.example.cms.model.entities;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-@MappedSuperclass
+
+@Entity
+@Table(name="non_alcoholic")
 @NoArgsConstructor
 @Getter
 @Setter
-public abstract class Alcohol {
 
+public class Non_Alcoholic {
     @Id
-    private long id;
+    private Long id;
 
     @NotEmpty
     private String name;
 
     @NotNull
-    private long price;
+    private Long price;
 
     @NotNull
-    private long amount;
+    private Long amount;
 
-    @NotNull
-    private Double abv;
+    private Boolean isCarbonated;
 }

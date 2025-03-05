@@ -1,4 +1,4 @@
-package com.example.cms.model.entity;
+package com.example.cms.model.entities;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "professors")
-public class Professor extends Person {
-    private String office;
-    private int salary;
+@Table(name = "whisky")
+public class Whisky extends Alcohol{
+    private int age;
+    private String barrelType;
 }

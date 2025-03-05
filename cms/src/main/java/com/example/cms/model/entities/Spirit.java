@@ -11,8 +11,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "beer")
-public class Beer extends Alcohol{
-    private String beerType;
-    private String beerOrigin;
+@Table(name = "Spirit")
+public class Spirit extends Alcohol{
+    private String spiritType;
 }

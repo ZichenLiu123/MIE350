@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 @NoArgsConstructor
@@ -21,9 +22,9 @@ public abstract class Alcohol {
     @NotEmpty
     private String name;
 
-    @NotEmpty
+    @NotNull
     private long price;
 
-    @NotEmpty
+    @NotNull
     private long amount;
 }

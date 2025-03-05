@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CourseDto {
-    private String code;
+public class AlcoholDto {
     private String name;
-    private Long professorId;
+    private Long price;
+    private Long amount;
 }

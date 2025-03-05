@@ -1,6 +1,5 @@
 package com.example.cms;
 
-import com.example.cms.controller.exceptions.CourseNotFoundException;
 import com.example.cms.model.entity.Course;
 import com.example.cms.model.repository.CourseRepository;
 import com.example.cms.model.repository.ProfessorRepository;
@@ -18,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @ExtendWith(SpringExtension.class)

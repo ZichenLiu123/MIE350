@@ -1,1 +1,2 @@
-INSERT INTO beer(id, name, price, amount, beerType, beerOrigin) VALUES (1, 'Budweiser', 2.95, 473, 'Pale Lagers', 'USA')
+INSERT INTO beer(id, name, price, amount, beerType, beerOrigin) VALUES (1, 'Budweiser', 2.95, 473, 'Pale Lagers', 'USA');
+INSERT INTO whisky (id, name, price, amount, age, barrelType) VALUES (2, 'Name', 100, 750, 3, 'Oak');

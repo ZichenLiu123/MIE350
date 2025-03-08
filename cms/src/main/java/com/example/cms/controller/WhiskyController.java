@@ -3,6 +3,7 @@ package com.example.cms.controller;
 import com.example.cms.controller.exceptions.WhiskyNotFoundException;
 import com.example.cms.model.entities.Whisky;
 import com.example.cms.model.repositories.WhiskyRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,8 @@ public class WhiskyController {
         return repository.findAll();
     }
 
-    // Used alcoholId instead of whisky id because we might want to index all alcohol later?
+    // Used alcoholId instead of whisky id because we might want to index all
+    // alcohol later?
     // Need to confirm
     @GetMapping("/whisky/{id}")
     Whisky retrieveWhisky(@PathVariable("id") long alcoholId) {
@@ -39,6 +41,7 @@ public class WhiskyController {
     Whisky createWhisky(@RequestBody Whisky newWhisky) {
         return repository.save(newWhisky);
     }
+
     // Put | Update
     @PutMapping("/whisky/{id}")
     Whisky updateWhisky(@RequestBody Whisky newWhisky, @PathVariable("id") long alcoholId) {

@@ -1,8 +1,9 @@
 package com.example.cms.controller;
 
 import com.example.cms.model.entities.Beer;
-import com.example.cms.controller.exceptions.BeerNotFoundException;
 import com.example.cms.model.repositories.BeerRepository;
+import com.example.cms.controller.exceptions.BeerNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

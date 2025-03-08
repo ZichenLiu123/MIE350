@@ -14,7 +14,7 @@ import org.springframework.lang.Nullable;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Wine")
+@Table(name = "wine")
 
 public class Wine extends Alcohol{
     

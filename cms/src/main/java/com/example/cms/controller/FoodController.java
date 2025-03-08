@@ -1,1 +1,1 @@
-package com.example.cms.model.entities;
+package com.example.cms.controller;

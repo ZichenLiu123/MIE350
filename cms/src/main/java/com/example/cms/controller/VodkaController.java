@@ -10,7 +10,6 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/vodka")
 public class VodkaController {
 
     @Autowired
@@ -21,26 +20,26 @@ public class VodkaController {
     }
 
     // Retrieve all vodkas
-    @GetMapping
+    @GetMapping("/vodka")
     public List<Vodka> retrieveAllVodkas() {
         return repository.findAll();
     }
 
     // Create a new vodka entry
-    @PostMapping
+    @PostMapping ("/vodka")
     public Vodka createVodka(@RequestBody Vodka newVodka) {
         return repository.save(newVodka);
     }
 
     // Retrieve a specific vodka by ID
-    @GetMapping("/{id}")
+    @GetMapping("/vodka/{id}")
     public Vodka retrieveVodka(@PathVariable("id") Long vodkaId) {
         return repository.findById(vodkaId)
                 .orElseThrow(() -> new VodkaNotFoundException(vodkaId));
     }
 
     // Update an existing vodka by ID
-    @PutMapping("/{id}")
+    @PutMapping("/vodka/{id}")
     public Vodka updateVodka(@RequestBody Vodka newVodka, @PathVariable("id") Long vodkaId) {
         return repository.findById(vodkaId)
                 .map(vodka -> {
@@ -54,19 +53,19 @@ public class VodkaController {
     }
 
     // Delete a vodka by ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/vodka/{id}")
     public void deleteVodka(@PathVariable("id") Long vodkaId) {
         repository.deleteById(vodkaId);
     }
 
     // Search for vodka by name
-    @GetMapping("/search/{name}")
+    @GetMapping("/vodka/search/{name}")
     public List<Vodka> searchByName(@PathVariable String name) {
         return repository.searchByName(name);
     }
 
     // Retrieve vodkas by specific flavor
-    @GetMapping("/flavor/{flavor}")
+    @GetMapping("/vodka/flavor/{flavor}")
     public List<Vodka> getByFlavor(@PathVariable String flavor) {
         return repository.findByFlavor(flavor);
     }

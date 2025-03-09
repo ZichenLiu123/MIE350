@@ -22,45 +22,41 @@ public class BeerController {
     // GET & POST & DELETE automatically built in Spring Repo. fns
 
     // Get | Read
-    @GetMapping("/beer")
+    @GetMapping("/alcohol/beer")
     List<Beer> retrieveAllBeer() {
         return repository.findAll();
     }
 
     // Used alcoholId instead of beer id because we might want to index all alcohol later?
     // Need to confirm
-    @GetMapping("/beer/{id}")
+    @GetMapping("/alcohol/beer/{id}")
     Beer retrieveBeer(@PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .orElseThrow(() -> new BeerNotFoundException(alcoholId));
     }
 
     // Post | Create
-    @PostMapping("/beer")
+    @PostMapping("/alcohol/beer")
     Beer createBeer(@RequestBody Beer newBeer) {
         return repository.save(newBeer);
     }
     // Put | Update
-    @PutMapping("/beer/{id}")
+    @PutMapping("/alcohol/beer/{id}")
     Beer updateBeer(@RequestBody Beer newBeer, @PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .map(beer -> { // need to add partial update features later
-                    beer.setName(newBeer.getName());
-                    beer.setPrice(newBeer.getPrice());
-                    beer.setAmount(newBeer.getAmount());
                     beer.setBeerType(newBeer.getBeerType());
                     beer.setBeerOrigin(newBeer.getBeerOrigin());
                     return repository.save(newBeer);
                 })
                 .orElseGet(() -> {
-                    newBeer.setId(alcoholId);
                     return repository.save(newBeer);
                 });
     }
 
     // Delete | Delete
 
-    @DeleteMapping("/beer/{id}")
+    @DeleteMapping("/alcohol/beer/{id}")
     void deleteBeer(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
     }

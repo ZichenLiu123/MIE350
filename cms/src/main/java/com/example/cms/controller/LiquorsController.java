@@ -55,14 +55,10 @@ public class LiquorsController {
     public Liquors updateLiquors(@RequestBody Liquors updatedLiquor, @PathVariable("id") Long id) {
         return repository.findById(id)
                 .map(liquor -> {
-                    liquor.setName(updatedLiquor.getName());
-                    liquor.setPrice(updatedLiquor.getPrice());
-                    liquor.setAmount(updatedLiquor.getAmount());
                     liquor.setAroma(updatedLiquor.getAroma());
                     return repository.save(liquor);
                 })
                 .orElseGet(() -> {
-                    updatedLiquor.setId(id);
                     return repository.save(updatedLiquor);
                 });
     }

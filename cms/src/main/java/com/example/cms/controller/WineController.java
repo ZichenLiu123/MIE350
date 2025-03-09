@@ -11,6 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/alcohol/wine")
 public class WineController {
 
     @Autowired
@@ -21,59 +22,58 @@ public class WineController {
     }
 
     // Retrieve all wines
-    @GetMapping ("/wine")
+    @GetMapping ("")
     public List<Wine> retrieveAllWines() {
         return repository.findAll();
     }
 
     // Create a new wine entry
-    @PostMapping ("/wine")
+    @PostMapping ("")
     public Wine createWine(@RequestBody Wine newWine) {
         return repository.save(newWine);
     }
 
     // Retrieve a specific wine by ID
-    @GetMapping("/wine/{id}")
+    @GetMapping("/{id}")
     public Wine retrieveWine(@PathVariable("id") Long wineId) {
         return repository.findById(wineId)
                 .orElseThrow(() -> new WineNotFoundException(wineId));
     }
 
     // Update an existing wine by ID
-    @PutMapping("/wine/{id}")
+    @PutMapping("/{id}")
     public Wine updateWine(@RequestBody Wine newWine, @PathVariable("id") Long wineId) {
         return repository.findById(wineId)
                 .map(wine -> {
-                    wine.setType(newWine.getType());
+                    wine.setWineType(newWine.getWineType());
                     wine.setAge(newWine.getAge());
                     return repository.save(wine);
                 })
                 .orElseGet(() -> {
-                    newWine.setId(wineId);
                     return repository.save(newWine);
                 });
     }
 
     // Delete a wine by ID
-    @DeleteMapping("/wine/{id}")
+    @DeleteMapping("/{id}")
     public void deleteWine(@PathVariable("id") Long wineId) {
         repository.deleteById(wineId);
     }
 
     // Search for wine by name
-    @GetMapping("/wine/search/{name}")
+    @GetMapping("/search/{name}")
     public List<Wine> searchByName(@PathVariable String name) {
         return repository.searchByName(name);
     }
 
     // Retrieve wines by type (e.g., Red, White, Rosé)
-    @GetMapping("/wine/type/{type}")
+    @GetMapping("/type/{type}")
     public List<Wine> getByType(@PathVariable String type) {
         return repository.findByType(type);
     }
 
     // Retrieve aged wines (e.g., wines aged over X years)
-    @GetMapping("/wine/aged/{minAge}")
+    @GetMapping("/aged/{minAge}")
     public List<Wine> getAgedWines(@PathVariable int minAge) {
         return repository.findAgedWines(minAge);
     }

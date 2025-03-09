@@ -43,7 +43,6 @@ public class TequilaController {
                     return repository.save(tequila);
                 })
                 .orElseGet(() -> {
-                    newTequila.setId(id);
                     return repository.save(newTequila);
                 });
     }

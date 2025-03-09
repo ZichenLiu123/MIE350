@@ -10,16 +10,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "beer")
-public class Beer{
+@Table(name = "spirit")
+public class Spirit {
     @Id
-    private long id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "id")
     @MapsId
     private Alcohol alcohol;
 
-    private String beerType;
-    private String beerOrigin;
+    @ManyToOne
+    @JoinColumn(name = "spirit_type_id", nullable = false)
+    private SpiritType spiritType;
 }

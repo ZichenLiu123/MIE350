@@ -47,15 +47,11 @@ public class WhiskyController {
     Whisky updateWhisky(@RequestBody Whisky newWhisky, @PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .map(whisky -> { // need to add partial update features later
-                    whisky.setName(newWhisky.getName());
-                    whisky.setPrice(newWhisky.getPrice());
-                    whisky.setAmount(newWhisky.getAmount());
                     whisky.setAge(newWhisky.getAge());
                     whisky.setBarrelType(newWhisky.getBarrelType());
                     return repository.save(newWhisky);
                 })
                 .orElseGet(() -> {
-                    newWhisky.setId(alcoholId);
                     return repository.save(newWhisky);
                 });
     }

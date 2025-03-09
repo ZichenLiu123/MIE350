@@ -1,6 +1,7 @@
 package com.example.cms.model.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -13,7 +14,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "liquors")
-public class Liquors extends Alcohol{
+public class Liquors{
+    @Id
+    private long liquors_id;
+
     @NotNull
     private String aroma;
 }

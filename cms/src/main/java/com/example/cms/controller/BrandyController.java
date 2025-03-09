@@ -57,7 +57,6 @@ public class BrandyController {
                     return repository.save(brandy);
                 })
                 .orElseGet(() -> {
-                    newBrandy.setId(brandyId);
                     return repository.save(newBrandy);
                 });
     }

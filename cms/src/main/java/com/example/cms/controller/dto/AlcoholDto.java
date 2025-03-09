@@ -6,7 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AlcoholDto {
+    private long id;
+    private long category_id;
+    private long amount;
     private String name;
-    private Long price;
-    private Long amount;
+    private long price;
+    private Double abv;
+    private String top1Flavor;
+    private String top2Flavor;
+    private String top3Flavor;
 }

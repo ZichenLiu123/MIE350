@@ -1,23 +1,30 @@
 package com.example.cms.model.entities;
-
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-@MappedSuperclass
+@Entity
 @NoArgsConstructor
 @Getter
 @Setter
-public abstract class Alcohol {
+public class Alcohol {
 
     @Id
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private AlcoholCategory category_id;
+
+    @NotNull
+    private long amount;
 
     @NotEmpty
     private String name;
@@ -26,8 +33,14 @@ public abstract class Alcohol {
     private long price;
 
     @NotNull
-    private long amount;
+    private Double abv;
 
     @NotNull
-    private Double abv;
+    private String top1Flavor;
+
+    @NotNull
+    private String top2Flavor;
+
+    @NotNull
+    private String top3Flavor;
 }

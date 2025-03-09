@@ -7,15 +7,17 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "tequilas")
-public class Tequila{
+@Table(name = "spirit_type")
+public class SpiritType {
     @Id
-    private long tequila_id;
+    private long id;
 
-    private String type;
+    @NotEmpty
+    private String name;
 }

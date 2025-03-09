@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.lang.Nullable;
@@ -15,11 +14,18 @@ import org.springframework.lang.Nullable;
 @Getter
 @Setter
 @Table(name = "wine")
+public class Wine{
+    @Id
+    private Long id;
 
-public class Wine extends Alcohol{
-    
-    @NotEmpty
-    private String type;
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Alcohol alcohol;
+
+    @ManyToOne
+    @JoinColumn(name = "wine_type_id", nullable = false)
+    private WineType wineType;
 
     @Nullable
     private Integer age;

@@ -47,7 +47,6 @@ public class VodkaController {
                     return repository.save(vodka);
                 })
                 .orElseGet(() -> {
-                    newVodka.setId(vodkaId);
                     return repository.save(newVodka);
                 });
     }

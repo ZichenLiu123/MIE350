@@ -43,7 +43,6 @@ public class RumController {
                     return repository.save(rum);
                 })
                 .orElseGet(() -> {
-                    newRum.setId(id);
                     return repository.save(newRum);
                 });
     }

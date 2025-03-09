@@ -3,19 +3,24 @@ package com.example.cms.model.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "rums")
+@Table(name = "rum")
 public class Rum {
     @Id
-    private long rum_id;
+    private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Spirit spirit;
+
+    @Nullable
     private String flavour;
 }

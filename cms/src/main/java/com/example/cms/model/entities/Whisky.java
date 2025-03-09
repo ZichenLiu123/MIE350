@@ -5,18 +5,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
 @Table(name = "whisky")
-public class Whisky{
+public class Whisky {
     @Id
-    private long whisky_id;
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Spirit spirit;
 
     @Nullable
     private Integer age;

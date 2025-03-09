@@ -11,34 +11,39 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/alcohol/spirit/rum")
 public class RumController {
-    @Autowired
     private final RumRepository repository;
 
     public RumController(RumRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/rums")
+    // GET & POST & DELETE automatically built in Spring Repo. fns
+
+    // Get | Read
+    @GetMapping()
     List<Rum> retrieveAllRums() {
         return repository.findAll();
     }
 
-    @PostMapping("/rums")
+    @GetMapping("/{id}")
+    Rum retrieveRum(@PathVariable("id") long alcoholId) {
+        return repository.findById(alcoholId)
+                .orElseThrow(() -> new RumNotFoundException(alcoholId));
+    }
+
+    // Post | Create
+    @PostMapping()
     Rum createRum(@RequestBody Rum newRum) {
         return repository.save(newRum);
     }
 
-    @GetMapping("/rums/{id}")
-    Rum retrieveRum(@PathVariable("id") Long id) {
-        return repository.findById(id)
-        .orElseThrow(() -> new RumNotFoundException(id));
-    }
-
-    @PutMapping("/rums/{id}")
-    Rum updateRum(@RequestBody Rum newRum, @PathVariable("id") Long id) {
-        return repository.findById(id)
-                .map(rum -> {
+    // Put | Update
+    @PutMapping("/{id}")
+    Rum updateRum(@RequestBody Rum newRum, @PathVariable("id") long alcoholId) {
+        return repository.findById(alcoholId)
+                .map(rum -> { // need to add partial update features later
                     rum.setFlavour(newRum.getFlavour());
                     return repository.save(rum);
                 })
@@ -47,10 +52,9 @@ public class RumController {
                 });
     }
 
-    @DeleteMapping("/rums/{id}")
-    void deleteStudent(@PathVariable("id") Long id) {
-        repository.deleteById(id);
+    // Delete | Delete
+    @DeleteMapping("/{id}")
+    void deleteRum(@PathVariable("id") long alcoholId) {
+        repository.deleteById(alcoholId);
     }
-
 }
-

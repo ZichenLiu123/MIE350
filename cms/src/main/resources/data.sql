@@ -118,9 +118,6 @@ INSERT INTO wine(id, wine_type_id, age) VALUES
 (39, 2, NULL),
 (40, 2, NULL);
 
-
-
-
 -- Spirit Data Input --
 -- (1, 'Whiskey'),
 -- (2, 'Brandy'),
@@ -148,5 +145,24 @@ INSERT INTO spirit(id, spirit_type_id) VALUES
 (118, 5),
 (119, 5);
 
+-- Whisky Data Input --
+INSERT INTO whisky(id, age, barrelType) VALUES
+(100, 12, 'Oak'),
+(101, NULL, 'Oak'),
+(102, NULL, 'Oak'),
+(103, NULL, 'Oak'),
+(104, 13, 'Oak'),
+(105, NULL, 'Oak'),
+(106, 13, 'Oak'),
+(109, NULL, 'Oak');
 
-
+-- Rum Data Input --
+INSERT INTO rum(id, flavour) VALUES
+(110, 'Hazelnut'),
+(111, 'Coconut'),
+(112, 'Caramel'),
+(113, 'Dart Fruit'),
+(114, 'Dark Chocolate'),
+(115, 'Vanilla'),
+(116, 'Vanilla'),
+(117, 'Caramel');

@@ -11,6 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/alcohol/spirit/whisky")
 public class WhiskyController {
     @Autowired
     private final WhiskyRepository repository;
@@ -22,7 +23,7 @@ public class WhiskyController {
     // GET & POST & DELETE automatically built in Spring Repo. fns
 
     // Get | Read
-    @GetMapping("/whisky")
+    @GetMapping()
     List<Whisky> retrieveAllWhisky() {
         return repository.findAll();
     }
@@ -30,26 +31,26 @@ public class WhiskyController {
     // Used alcoholId instead of whisky id because we might want to index all
     // alcohol later?
     // Need to confirm
-    @GetMapping("/whisky/{id}")
+    @GetMapping("/{id}")
     Whisky retrieveWhisky(@PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .orElseThrow(() -> new WhiskyNotFoundException(alcoholId));
     }
 
     // Post | Create
-    @PostMapping("/whisky")
+    @PostMapping()
     Whisky createWhisky(@RequestBody Whisky newWhisky) {
         return repository.save(newWhisky);
     }
 
     // Put | Update
-    @PutMapping("/whisky/{id}")
+    @PutMapping("/{id}")
     Whisky updateWhisky(@RequestBody Whisky newWhisky, @PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .map(whisky -> { // need to add partial update features later
                     whisky.setAge(newWhisky.getAge());
                     whisky.setBarrelType(newWhisky.getBarrelType());
-                    return repository.save(newWhisky);
+                    return repository.save(whisky); // Save the updated existing object, not newWhisky
                 })
                 .orElseGet(() -> {
                     return repository.save(newWhisky);
@@ -58,7 +59,7 @@ public class WhiskyController {
 
     // Delete | Delete
 
-    @DeleteMapping("/whisky/{id}")
+    @DeleteMapping("/{id}")
     void deleteWhisky(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
     }

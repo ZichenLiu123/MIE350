@@ -15,7 +15,7 @@ public class Beer{
     @Id
     private long id;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id")
     @MapsId
     private Alcohol alcohol;

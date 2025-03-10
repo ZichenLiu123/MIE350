@@ -19,23 +19,23 @@ public class TequilaController {
         this.repository = repository;
     }
 
-    @GetMapping("/tequilas")
+    @GetMapping("/tequila")
     List<Tequila> retrieveAllTequilas() {
         return repository.findAll();
     }
 
-    @PostMapping("/tequilas")
+    @PostMapping("/tequila")
     Tequila createTequila(@RequestBody Tequila newTequila) {
         return repository.save(newTequila);
     }
 
-    @GetMapping("/tequilas/{id}")
+    @GetMapping("/tequila/{id}")
     Tequila retrieveTequila(@PathVariable("id") Long id) {
         return repository.findById(id)
         .orElseThrow(() -> new TequilaNotFoundException(id));
     }
 
-    @PutMapping("/tequilas/{id}")
+    @PutMapping("/tequila/{id}")
     Tequila updateTequila(@RequestBody Tequila newTequila, @PathVariable("id") Long id) {
         return repository.findById(id)
                 .map(tequila -> {
@@ -47,7 +47,7 @@ public class TequilaController {
                 });
     }
 
-    @DeleteMapping("/tequilas/{id}")
+    @DeleteMapping("/tequila/{id}")
     void deleteStudent(@PathVariable("id") Long id) {
         repository.deleteById(id);
     }

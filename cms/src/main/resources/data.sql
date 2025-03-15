@@ -387,6 +387,17 @@ INSERT INTO spirit(id, spirit_type_id) VALUES
 (117, 5),
 (118, 5),
 (119, 5),
+(430, 4),  -- Clase Azul Tequila Reposado
+(431, 4),  -- Don Julio 1942 Tequila
+(432, 4),  -- Casamigos Reposado Tequila
+(433, 4),  -- Patrón Silver Tequila
+(434, 4),  -- Don Julio Añejo Tequila
+(435, 4),  -- Casamigos Blanco Tequila
+(436, 4),  -- Casamigos Añejo Tequila
+(437, 4),  -- Corralejo Reposado Tequila
+(438, 4),  -- Espolòn Blanco Tequila
+(439, 4),  -- Espolòn Reposado Tequila
+(440, 4);  -- Siempre Tequila Plata
 (450, 1), -- Chivas Regal 18
 (451, 1), -- Johnnie Walker Blue Label
 (452, 1), -- Jameson 12 year Special Reserve
@@ -431,6 +442,7 @@ INSERT INTO spirit(id, spirit_type_id) VALUES
 (505, 3),  -- Raki (Yeni Raki)
 (506, 3),  -- Grand Marnier
 (507, 3);  -- Ouzo
+
 
 
 -- Whisky Data Input --

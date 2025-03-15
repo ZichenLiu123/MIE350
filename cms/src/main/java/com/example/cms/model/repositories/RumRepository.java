@@ -1,8 +1,6 @@
 package com.example.cms.model.repositories;
 
 import com.example.cms.model.entities.Rum;
-import com.example.cms.model.entities.Tequila;
-import com.example.cms.model.entities.Wine;
 
 import java.util.List;
 

@@ -2,6 +2,7 @@ package com.example.cms.controller;
 
 import com.example.cms.controller.exceptions.RumNotFoundException;
 import com.example.cms.model.entities.Rum;
+import com.example.cms.model.entities.Tequila;
 import com.example.cms.model.repositories.RumRepository;
 
 import org.springframework.web.bind.annotation.*;
@@ -55,5 +56,17 @@ public class RumController {
     @DeleteMapping("/{id}")
     void deleteRum(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
+    }
+
+     // Search for Rum by name
+    @GetMapping("/search/{name}")
+    public List<Rum> searchByName(@PathVariable String name) {
+        return repository.searchByName(name);
+    }
+
+    // Retrieve Rum by flavour 
+    @GetMapping("/flavour/{flavour}")
+    public List<Rum> getByFlavour(@PathVariable String flavour) {
+        return repository.findByFlavour(flavour);
     }
 }

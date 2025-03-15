@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "tequilas")
+@Table(name = "tequila")
 public class Tequila{
     @Id
     private long tequila_id;

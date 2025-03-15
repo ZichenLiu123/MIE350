@@ -2,6 +2,7 @@ package com.example.cms.controller;
 
 import com.example.cms.controller.exceptions.TequilaNotFoundException;
 import com.example.cms.model.entities.Tequila;
+import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.TequilaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/alcohol/spirit/tequila")
 public class TequilaController {
     @Autowired
     private final TequilaRepository repository;
@@ -19,23 +21,23 @@ public class TequilaController {
         this.repository = repository;
     }
 
-    @GetMapping("/tequila")
+    @GetMapping("")
     List<Tequila> retrieveAllTequilas() {
         return repository.findAll();
     }
 
-    @PostMapping("/tequila")
+    @PostMapping("")
     Tequila createTequila(@RequestBody Tequila newTequila) {
         return repository.save(newTequila);
     }
 
-    @GetMapping("/tequila/{id}")
+    @GetMapping("/{id}")
     Tequila retrieveTequila(@PathVariable("id") Long id) {
         return repository.findById(id)
         .orElseThrow(() -> new TequilaNotFoundException(id));
     }
 
-    @PutMapping("/tequila/{id}")
+    @PutMapping("/{id}")
     Tequila updateTequila(@RequestBody Tequila newTequila, @PathVariable("id") Long id) {
         return repository.findById(id)
                 .map(tequila -> {
@@ -47,10 +49,23 @@ public class TequilaController {
                 });
     }
 
-    @DeleteMapping("/tequila/{id}")
+    @DeleteMapping("/{id}")
     void deleteStudent(@PathVariable("id") Long id) {
         repository.deleteById(id);
     }
+
+    // Search for Tequila by name
+    @GetMapping("/search/{name}")
+    public List<Tequila> searchByName(@PathVariable String name) {
+        return repository.searchByName(name);
+    }
+
+    // Retrieve tequla by type 
+    @GetMapping("/type/{type}")
+    public List<Tequila> getByType(@PathVariable String type) {
+        return repository.findByType(type);
+    }
+
 
 }
 

@@ -21,16 +21,14 @@ import com.example.cms.model.repositories.LiquorsRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/liquors")
+@RequestMapping("/alcohol/spirit/liquors")
 
 public class LiquorsController {
     private final LiquorsRepository repository;
-    private AlcoholRepository alcoholRepository;
 
     @Autowired
-    public LiquorsController(LiquorsRepository repository, AlcoholRepository alcoholRepository) {
+    public LiquorsController(LiquorsRepository repository) {
         this.repository = repository;
-        this.alcoholRepository = alcoholRepository;
     }
 
     @GetMapping()

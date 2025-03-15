@@ -25,15 +25,13 @@ import com.example.cms.model.repositories.Non_AlcoholicRepository;
 
 public class Non_AlcoholicController {
     private final Non_AlcoholicRepository repository;
-    private AlcoholRepository alcoholRepository;
 
     @Autowired
-    public Non_AlcoholicController(Non_AlcoholicRepository repository, AlcoholRepository alcoholRepository) {
+    public Non_AlcoholicController(Non_AlcoholicRepository repository) {
         this.repository = repository;
-        this.alcoholRepository = alcoholRepository;
     }
 
-    @GetMapping()
+    @GetMapping
     public List<Non_Alcoholic> retrieveAllNon_AlcoholicDrinks() {
         return repository.findAll();
     }

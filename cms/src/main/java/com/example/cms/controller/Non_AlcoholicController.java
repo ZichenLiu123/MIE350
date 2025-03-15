@@ -16,21 +16,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.cms.controller.exceptions.Non_AlcoholicNotFoundException;
 import com.example.cms.model.entities.Non_Alcoholic;
+import com.example.cms.model.repositories.AlcoholRepository;
 import com.example.cms.model.repositories.Non_AlcoholicRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/non-alcoholic")
+@RequestMapping("/alcohol/non-alcoholic")
 
 public class Non_AlcoholicController {
     private final Non_AlcoholicRepository repository;
+    private AlcoholRepository alcoholRepository;
 
     @Autowired
-    public Non_AlcoholicController(Non_AlcoholicRepository repository) {
+    public Non_AlcoholicController(Non_AlcoholicRepository repository, AlcoholRepository alcoholRepository) {
         this.repository = repository;
+        this.alcoholRepository = alcoholRepository;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Non_Alcoholic> retrieveAllNon_AlcoholicDrinks() {
         return repository.findAll();
     }
@@ -65,10 +68,8 @@ public class Non_AlcoholicController {
     public Non_Alcoholic updateNon_AlcoholicDrink(@RequestBody Non_Alcoholic updatedDrink, @PathVariable("id") Long id) {
         return repository.findById(id)
                 .map(drink -> {
-                    drink.setName(updatedDrink.getName());
-                    drink.setPrice(updatedDrink.getPrice());
-                    drink.setAmount(updatedDrink.getAmount());
                     drink.setIsCarbonated(updatedDrink.getIsCarbonated());
+                    drink.setAlcoholicEquivalent(updatedDrink.getAlcoholicEquivalent());
                     return repository.save(drink);
                 })
                 .orElseGet(() -> {

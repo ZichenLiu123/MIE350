@@ -1,7 +1,9 @@
 package com.example.cms.controller;
 
+import com.example.cms.controller.dto.AlcoholDto;
 import com.example.cms.controller.exceptions.AlcoholNotFoundException;
 import com.example.cms.model.entities.Alcohol;
+import com.example.cms.model.entities.AlcoholCategory;
 import com.example.cms.model.repositories.AlcoholRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,6 @@ public class AlcoholController {
         return repository.findAll();
     }
 
-    // Used alcoholId instead of beer id because we might want to index all alcohol later?
-    // Need to confirm
     @GetMapping("/alcohol/{id}")
     Alcohol retrieveAlcohol(@PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
@@ -37,25 +37,73 @@ public class AlcoholController {
 
     // Post | Create
     @PostMapping("/alcohol")
-    Alcohol createAlcohol(@RequestBody Alcohol newAlcohol) {
+    Alcohol createAlcohol(@RequestBody AlcoholDto alcoholDto) {
+        Alcohol newAlcohol = new Alcohol();
+        // Basic attributes
+        newAlcohol.setId(alcoholDto.getId());
+        newAlcohol.setName(alcoholDto.getName());
+        newAlcohol.setAmount(alcoholDto.getAmount());
+        newAlcohol.setPrice(alcoholDto.getPrice());
+        newAlcohol.setAbv(alcoholDto.getAbv());
+        newAlcohol.setTop1Flavor(alcoholDto.getTop1Flavor());
+        newAlcohol.setTop2Flavor(alcoholDto.getTop2Flavor());
+        newAlcohol.setTop3Flavor(alcoholDto.getTop3Flavor());
+
+        // Find from category table with category string instead
+        Long categoryId = repository.findCategory(alcoholDto.getCategory());
+        if (categoryId != null) {
+            AlcoholCategory category = new AlcoholCategory();
+            category.setCategory_id(categoryId);
+            newAlcohol.setCategory_id(category);
+        }
+
         return repository.save(newAlcohol);
     }
     // Put | Update
     @PutMapping("/alcohol/{id}")
-    Alcohol updateAlcohol(@RequestBody Alcohol newAlcohol, @PathVariable("id") long alcoholId) {
+    Alcohol updateAlcohol(@RequestBody AlcoholDto alcoholDto, @PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
-                .map(alcohol -> { // need to add partial update features later
-                    alcohol.setCategory_id(newAlcohol.getCategory_id());
-                    alcohol.setAmount(newAlcohol.getAmount());
-                    alcohol.setName(newAlcohol.getName());
-                    alcohol.setPrice(newAlcohol.getPrice());
-                    alcohol.setAbv(newAlcohol.getAbv());
-                    alcohol.setTop1Flavor(newAlcohol.getTop1Flavor());
-                    alcohol.setTop2Flavor(newAlcohol.getTop2Flavor());
-                    alcohol.setTop3Flavor(newAlcohol.getTop3Flavor());
-                    return repository.save(newAlcohol);
+                .map(alcohol -> {
+                    // Basic attributes
+                    alcohol.setName(alcoholDto.getName());
+                    alcohol.setAmount(alcoholDto.getAmount());
+                    alcohol.setPrice(alcoholDto.getPrice());
+                    alcohol.setAbv(alcoholDto.getAbv());
+                    alcohol.setTop1Flavor(alcoholDto.getTop1Flavor());
+                    alcohol.setTop2Flavor(alcoholDto.getTop2Flavor());
+                    alcohol.setTop3Flavor(alcoholDto.getTop3Flavor());
+
+                    // Find from category table with category string instead
+                    Long categoryId = repository.findCategory(alcoholDto.getCategory());
+                    if (categoryId != null) {
+                        AlcoholCategory category = new AlcoholCategory();
+                        category.setCategory_id(categoryId);
+                        alcohol.setCategory_id(category);
+                    }
+
+                    // Save the existing alcohol object (not the newAlcohol)
+                    return repository.save(alcohol);
                 })
                 .orElseGet(() -> {
+                    // Create new alcohol if not found
+                    Alcohol newAlcohol = new Alcohol();
+                    newAlcohol.setId(alcoholId); // Use the provided ID
+                    newAlcohol.setName(alcoholDto.getName());
+                    newAlcohol.setAmount(alcoholDto.getAmount());
+                    newAlcohol.setPrice(alcoholDto.getPrice());
+                    newAlcohol.setAbv(alcoholDto.getAbv());
+                    newAlcohol.setTop1Flavor(alcoholDto.getTop1Flavor());
+                    newAlcohol.setTop2Flavor(alcoholDto.getTop2Flavor());
+                    newAlcohol.setTop3Flavor(alcoholDto.getTop3Flavor());
+
+                    // Find from category table with category string instead
+                    Long categoryId = repository.findCategory(alcoholDto.getCategory());
+                    if (categoryId != null) {
+                        AlcoholCategory category = new AlcoholCategory();
+                        category.setCategory_id(categoryId);
+                        newAlcohol.setCategory_id(category);
+                    }
+
                     return repository.save(newAlcohol);
                 });
     }

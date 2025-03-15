@@ -17,7 +17,7 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "category")
 public class AlcoholCategory {
     @Id
-    private long category_id;
+    private Long category_id;
 
     @NotEmpty
     private String category_name;

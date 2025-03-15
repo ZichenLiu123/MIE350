@@ -1,13 +1,11 @@
 package com.example.cms.model.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @NoArgsConstructor
@@ -16,8 +14,12 @@ import lombok.Setter;
 @Table(name = "liquors")
 public class Liquors{
     @Id
-    private long liquors_id;
+    private long id;
 
-    @NotNull
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    @MapsId
+    private Alcohol alcohol;
+
     private String aroma;
 }

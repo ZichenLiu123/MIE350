@@ -40,10 +40,10 @@ public class SpiritController {
                 .orElseThrow(() -> new SpiritNotFoundException(spiritId));
     }
 
-    // Delete | Delete
-    @DeleteMapping("/{id}")
-    void deleteSpirit(@PathVariable("id") long spiritId) {
-        // You may need to decide if you want to delete the associated Alcohol as well
-        repository.deleteById(spiritId);
-    }
+//    // Delete | Delete
+//    @DeleteMapping("/{id}")
+//    void deleteSpirit(@PathVariable("id") long spiritId) {
+//        // You may need to decide if you want to delete the associated Alcohol as well
+//        repository.deleteById(spiritId);
+//    }
 }

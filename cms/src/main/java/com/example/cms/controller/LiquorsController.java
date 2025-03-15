@@ -16,21 +16,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.cms.controller.exceptions.LiquorsNotFoundException;
 import com.example.cms.model.entities.Liquors;
+import com.example.cms.model.repositories.AlcoholRepository;
 import com.example.cms.model.repositories.LiquorsRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/liquors")
+@RequestMapping("/alcohol/liquors")
 
 public class LiquorsController {
     private final LiquorsRepository repository;
+    private AlcoholRepository alcoholRepository;
 
     @Autowired
-    public LiquorsController(LiquorsRepository repository) {
+    public LiquorsController(LiquorsRepository repository, AlcoholRepository alcoholRepository) {
         this.repository = repository;
+        this.alcoholRepository = alcoholRepository;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Liquors> retrieveAllLiquors() {
         return repository.findAll();
     }

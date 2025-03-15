@@ -15,7 +15,7 @@ public class Spirit {
     @Id
     private Long id;
 
-    @OneToOne (cascade = CascadeType.PERSIST)
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     @MapsId
     private Alcohol alcohol;

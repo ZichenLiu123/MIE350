@@ -6,11 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AlcoholDto {
-    private long id;
-    private long category_id;
-    private long amount;
+    private Long id;
+    private String category; // find by name of category instead of number
+    private Long amount;
     private String name;
-    private long price;
+    private Long price;
     private Double abv;
     private String top1Flavor;
     private String top2Flavor;

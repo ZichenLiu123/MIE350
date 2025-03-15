@@ -3,6 +3,7 @@ package com.example.cms.controller;
 import com.example.cms.model.entities.Beer;
 import com.example.cms.model.repositories.BeerRepository;
 import com.example.cms.controller.exceptions.BeerNotFoundException;
+import com.example.cms.model.repositories.AlcoholRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,37 +12,42 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/alcohol/beer")
 public class BeerController {
     @Autowired
     private final BeerRepository repository;
 
-    public BeerController(BeerRepository repository) {
+    @Autowired
+    private AlcoholRepository alcoholRepository; // Add this
+
+    public BeerController(BeerRepository repository, AlcoholRepository alcoholRepository) {
         this.repository = repository;
+        this.alcoholRepository = alcoholRepository; // Update constructor
     }
 
     // GET & POST & DELETE automatically built in Spring Repo. fns
 
     // Get | Read
-    @GetMapping("/alcohol/beer")
+    @GetMapping()
     List<Beer> retrieveAllBeer() {
         return repository.findAll();
     }
 
     // Used alcoholId instead of beer id because we might want to index all alcohol later?
     // Need to confirm
-    @GetMapping("/alcohol/beer/{id}")
+    @GetMapping("/{id}")
     Beer retrieveBeer(@PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .orElseThrow(() -> new BeerNotFoundException(alcoholId));
     }
 
     // Post | Create
-    @PostMapping("/alcohol/beer")
+    @PostMapping()
     Beer createBeer(@RequestBody Beer newBeer) {
         return repository.save(newBeer);
     }
     // Put | Update
-    @PutMapping("/alcohol/beer/{id}")
+    @PutMapping("/{id}")
     Beer updateBeer(@RequestBody Beer newBeer, @PathVariable("id") long alcoholId) {
         return repository.findById(alcoholId)
                 .map(beer -> { // need to add partial update features later
@@ -56,7 +62,7 @@ public class BeerController {
 
     // Delete | Delete
 
-    @DeleteMapping("/alcohol/beer/{id}")
+    @DeleteMapping("/{id}")
     void deleteBeer(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
     }

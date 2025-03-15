@@ -234,9 +234,92 @@ VALUES
     (504, 3, 'Tia Maria', 29.99, 750, 20, 'Coffee', 'Sweet', 'Rich'),
     (505, 3, 'Raki (Yeni Raki)', 27.99, 750, 45, 'Anise', 'Herbal', 'Sweet'),
     (506, 3, 'Grand Marnier', 41.99, 750, 40, 'Citrus', 'Rich', 'Sweet'),
-    (507, 3, 'Ouzo', 22.99, 750, 40, 'Herbal', 'Sweet', 'Anise');
+    (507, 3, 'Ouzo', 22.99, 750, 40, 'Herbal', 'Sweet', 'Anise'),
 
+    -- Non-Alcoholic --
+    (900, 4, "Heineken Non-Alcoholic 0.0", 12.95, 1980, 0.01, "Malt", "Metallic", "Bitter"),
+    (901, 4, "Corona Non-Alcoholic", 11.45, 1980, 0.5, "Fruity", "Honey", "Malt"),
+    (902, 4, "Guinness 0", 11.95, 440, 0.5, "Bitter", "Sweet", "Coffee"),
+    (903, 4, "Clausthaler Premium Non Alcoholic", 2.20, 500, 0.01, "Neutral", "Lemon", "Grassy"),
+    (904, 4, "Partake Brewing Non-Alcoholic IPA", 2.00, 355, 0.3, "Sweet", "Citrus", "Caramel"),
+    (905, 4, "Partake Brewing Non-Alcoholic Pale Ale", 2.00, 355, 0.3, "Malt", "Citrus", "Dry"),
+    (906, 4, "Athletic Brewing Run Wild Non-Alcoholic IPA", 13.95, 355, 0.5, "Malt", "Bitter", "Neutral"),
+    (907, 4, "Nozeco Sparkling Dealcoholized", 12.95, 750, 0.01, "Fruity", "Floral", "Neutral"),
+    (908, 4, "Luna De Murviedro Dealcoholized Sparkling Rose", 9.95, 750, 0.01, "Fruity", "Sweet", "Fresh"),
+    (909, 4, "Nozeco Sparkling Rose Dealcoholized", 11.45, 750, 0.5, "Crisp", "Red Fruit", "Neutral"),
+    (910, 4, "Henkell Dealcoholized Sparkling Wine", 11.95, 750, 0.01, "Lemon", "Honey", "Tree Fruit"),
+    (911, 4, "Tarapacá Dealcoholized Sauvignon Blanc", 10.95, 750, 0.5, "Sweet", "Citrus", "Fresh"),
+    (912, 4, "Ritual Zero Proof Whiskey Alternative", 42.00, 750, 0.0, "Spicy", "Sweet", "Caramel"),
+    (913, 4, "Seedlip Garden 108", 51.00, 750, 0.5, "Herbal", "Citrus", "Lemon"),
+    (914, 4, "Lyre's American Malt", 44.00, 750, 0.5, "Sweet", "Malt", "Spicy"),
+    (915, 4, "Gruvi Dry Secco", 14.99, 750, 0.5, "Crisp", "Fruity", "Floral"),
+    (916, 4, "Fre Alcohol-Removed Chardonnay", 9.99, 750, 0.5, "Fruity", "Citrus", "Smooth"),
+    (917, 4, "Ariel Cabernet Sauvignon", 12.99, 750, 0.5, "Rich", "Fruity", "Earthy"),
+    (918, 4, "Leitz Eins Zwei Zero Riesling", 18.50, 750, 0.0, "Fruity", "Floral", "Sweet"),
+    (919, 4, "Pierre Zéro Merlot", 15.99, 750, 0.0, "Fruity", "Earthy", "Smooth"),
+    (920, 4, "Surely Non-Alcoholic Sparkling Rosé", 24.99, 750, 0.5, "Fruity", "Floral", "Sweet"),
+    (921, 4, "St. Regis Chardonnay", 11.99, 750, 0.5, "Fruity", "Floral", "Earthy"),
+    (922, 4, "Töst Sparkling White Tea", 8.99, 750, 0.0, "Tea", "Fruity", "Floral"),
+    (923, 4, "Thomson & Scott Noughty Rosé", 20.99, 750, 0.5, "Fruity", "Floral", "Sweet"),
+    (924, 4, "Grüvi Bubbly Rosé", 14.99, 750, 0.5, "Fruity", "Crisp", "Floral"),
+    (925, 4, "Athletic Brewing Upside Dawn Golden Ale", 12.99, 355, 0.5, "Malt", "Floral", "Crisp"),
+    (926, 4, "Clausthaler Dry-Hopped Non-Alcoholic", 2.50, 500, 0.5, "Hoppy", "Malt", "Floral"),
+    (927, 4, "BrewDog Nanny State", 11.99, 330, 0.5, "Hoppy", "Bitter", "Malt"),
+    (928, 4, "Bravus Oatmeal Dark", 13.99, 355, 0.5, "Roasted", "Sweet", "Coffee"),
+    (929, 4, "Lagunitas IPNA", 10.99, 355, 0.5, "Hoppy", "Citrus", "Malt"),
+    (930, 4, "WellBeing Victory Wheat", 10.99, 355, 0.5, "Citrus", "Wheat", "Smooth"),
+    (931, 4, "Erdinger Weissbier Alkoholfrei", 3.50, 500, 0.5, "Wheat", "Fruity", "Smooth"),
+    (932, 4, "Suntory All-Free", 12.99, 350, 0.0, "Crisp", "Malty", "Floral"),
+    (933, 4, "Seedlip Spice 94", 37.99, 750, 0.0, "Spicy", "Herbal", "Citrus"),
+    (934, 4, "Ritual Zero Proof Gin Alternative", 26.99, 750, 0.0, "Juniper", "Citrus", "Floral"),
+    (935, 4, "Monday Zero Alcohol Gin", 39.99, 750, 0.0, "Juniper", "Herbal", "Citrus"),
+    (936, 4, "Lyre's Dry London Spirit", 35.00, 700, 0.0, "Juniper", "Spicy", "Floral"),
+    (937, 4, "Free Spirits Non-Alcoholic Bourbon", 35.00, 750, 0.0, "Caramel", "Spicy", "Sweet"),
+    (938, 4, "Arkay Alcohol-Free Whisky", 27.50, 750, 0.0, "Smoky", "Spicy", "Sweet"),
+    (939, 4, "Fluère Spiced Cane Dark Roast", 30.00, 700, 0.0, "Spicy", "Sweet", "Woody");  
 
+-- Non Alcoholic Data Input --
+INSERT INTO non_alcoholic (id, isCarbonated, alcoholicEquivalent) VALUES
+(900, TRUE, 'Beer'),
+(901, TRUE, 'Beer'),
+(902, FALSE, 'Beer'),
+(903, FALSE, 'Beer'),
+(904, TRUE, 'Beer'),
+(905, TRUE, 'Beer'),
+(906, TRUE, 'Beer'),
+(907, TRUE, 'Wine'),
+(908, TRUE, 'Wine'),
+(909, TRUE, 'Wine'),
+(910, TRUE, 'Wine'),
+(911, TRUE, 'Wine'),
+(912, FALSE, 'Spirits'),
+(913, FALSE, 'Spirits'),
+(914, FALSE, 'Spirits'),
+(915, TRUE, 'Wine'),
+(916, TRUE, 'Wine'),
+(917, TRUE, 'Wine'),
+(918, TRUE, 'Wine'),
+(919, TRUE, 'Wine'),
+(920, TRUE, 'Wine'),
+(921, TRUE, 'Wine'),
+(922, TRUE, 'Wine'),
+(923, TRUE, 'Wine'),
+(924, TRUE, 'Wine'),
+(925, TRUE, 'Beer'),
+(926, TRUE, 'Beer'),
+(927, TRUE, 'Beer'),
+(928, FALSE, 'Beer'),
+(929, TRUE, 'Beer'),
+(930, TRUE, 'Beer'),
+(931, TRUE, 'Beer'),
+(932, FALSE, 'Beer'),
+(933, FALSE, 'Spirits'),
+(934, FALSE, 'Spirits'),
+(935, FALSE, 'Spirits'),
+(936, FALSE, 'Spirits'),
+(937, FALSE, 'Spirits'),
+(938, FALSE, 'Spirits'),
+(939, FALSE, 'Spirits');
 
 -- Beer Data Input --
 INSERT INTO beer(id, beerType, beerOrigin) VALUES
@@ -319,7 +402,36 @@ INSERT INTO spirit(id, spirit_type_id) VALUES
 (462, 1), -- Wild Turkey Rare Breed Barrel Proof Bourbon
 (463, 1), -- Knob Creek 18 Year Bourbon
 (464, 1), -- Larceny Barrel Proof Batch A124
-(465, 1); -- Booker's Bourbon Batch 2024-01 "Springfield Batch"
+(465, 1), -- Booker's Bourbon Batch 2024-01 "Springfield Batch"
+(480, 3),  -- Aperol
+(481, 3),  -- Jagermeister
+(482, 3),  -- Campari
+(483, 3),  -- Fernet-Branca
+(484, 3),  -- Chartreuse Green
+(485, 3),  -- Chartreuse Yellow
+(486, 3),  -- Cointreau
+(487, 3),  -- Grand Marnier Cordon Rouge
+(488, 3),  -- Luxardo Maraschino
+(489, 3),  -- St-Germain Elderflower
+(490, 3),  -- Benedictine DOM
+(491, 3),  -- Amaro Montenegro
+(492, 3),  -- Averna Amaro
+(493, 3),  -- Cynar
+(494, 3),  -- Ramazzotti Amaro
+(495, 3),  -- Kahlúa
+(496, 3),  -- Baileys Irish Cream
+(497, 3),  -- Drambuie
+(498, 3),  -- Chambord
+(499, 3),  -- Frangelico
+(500, 3),  -- Limoncello di Capri
+(501, 3),  -- Galliano L'Autentico
+(502, 3),  -- Ancho Reyes Original
+(503, 3),  -- Licor 43
+(504, 3),  -- Tia Maria
+(505, 3),  -- Raki (Yeni Raki)
+(506, 3),  -- Grand Marnier
+(507, 3);  -- Ouzo
+
 
 -- Whisky Data Input --
 INSERT INTO whisky(id, age, barrelType) VALUES
@@ -358,6 +470,38 @@ INSERT INTO rum(id, flavour) VALUES
 (115, 'Vanilla'),
 (116, 'Vanilla'),
 (117, 'Caramel');
+
+-- Liquors Data Input --
+INSERT INTO liquors(id, aroma) VALUES
+(480, 'Funky'),
+(481, 'Spicy'),
+(482, 'Bitter'),
+(483, 'Herbal'),
+(484, 'Spicy'),
+(485, 'Floral'),
+(486, 'Citrusy'),
+(487, 'Citrusy'),
+(488, 'Cherry'),
+(489, 'Floral'),
+(490, 'Herbal'),
+(491, 'Bitter'),
+(492, 'Bitter'),
+(493, 'Earthy'),
+(494, 'Herbal'),
+(495, 'Coffee'),
+(496, 'Creamy'),
+(497, 'Honey'),
+(498, 'Raspberry'),
+(499, 'Hazelnut'),
+(500, 'Citrusy'),
+(501, 'Vanilla'),
+(502, 'Spicy'),
+(503, 'Vanilla'),
+(504, 'Coffee'),
+(505, 'Anise'),
+(506, 'Citrusy'),
+(507, 'Anise');
+
 
 INSERT INTO food(id, name, flavour) VALUES
 (1001, 'Steak (Ribeye)', 'Beef'),

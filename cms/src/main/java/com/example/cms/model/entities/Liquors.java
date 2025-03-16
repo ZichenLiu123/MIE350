@@ -15,7 +15,7 @@ public class Liquors{
     @Id
     private long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     @MapsId
     private Spirit spirit;

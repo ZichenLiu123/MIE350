@@ -368,7 +368,42 @@ INSERT INTO wine(id, wine_type_id, age) VALUES
 -- (4, 'Tequila'),
 -- (5, 'Rum'),
 -- (6, 'Vodka');
+
 INSERT INTO spirit(id, spirit_type_id) VALUES
+(470,2),
+(471,2),
+(472,2),
+(473,2),
+(474,2),
+(475,2),
+(476,2),
+(477,2),
+(478,2),
+(479,2),
+(300,6),
+(301,6),
+(302,6),
+(303,6),
+(304,6),
+(305,6),
+(306,6),
+(307,6),
+(308,6),
+(309,6),
+(310,6),
+(311,6),
+(312,6),
+(313,6),
+(314,6),
+(315,6),
+(316,6),
+(317,6),
+(318,6),
+(319,6),
+(320,6),
+(321,6),
+(322,6),
+(323,6),
 (100, 1),
 (101, 1),
 (102, 1),
@@ -443,7 +478,47 @@ INSERT INTO spirit(id, spirit_type_id) VALUES
 (506, 3),  -- Grand Marnier
 (507, 3);  -- Ouzo
 
+-- Vodka Data Input --
+INSERT INTO vodka(id, country_origin) VALUES
+    (300, 'USA'),
+    (301, 'Sweden'),
+    (302, 'France'),
+    (303, 'Sweden'),
+    (304, 'Holland'),
+    (305, 'USA'),
+    (306, 'USA'),
+    (307, 'Latvia'),
+    (308, 'Poland'),
+    (309, 'Iceland'),
+    (310, 'St. Petersburg, Russia'),
+    (311, 'France'),
+    (312, 'France'),
+    (313, 'France'),
+    (314, 'France'),
+    (315, 'France'),
+    (316, 'France'),
+    (317, 'France'),
+    (318, 'France'),
+    (319, 'France'),
+    (320, 'France'),
+    (321, 'France'),
+    (322, 'France'),
+    (323, 'France');
 
+
+-- Brandy Data Input --
+INSERT INTO brandy (id, barrelType)
+VALUES
+    (470, 'French Oak (Limousin, Tronçais)'),
+    (471, 'Unaged (Stainless Steel or Glass)'),
+    (472, 'Unaged (Stainless Steel)'),
+    (473, 'French Oak (Limousin)'),
+    (474, 'French Oak (Limousin, Tronçais)'),
+    (475, 'French Oak'),
+    (476, 'French Oak (Tronçais)'),
+    (477, 'Finished in Kentucky Bourbon Casks'),
+    (478, 'American Oak'),
+    (479, 'American Oak (Sherry Solera System)');
 
 -- Whisky Data Input --
 INSERT INTO whisky(id, age, barrelType) VALUES

@@ -43,7 +43,7 @@ public class VodkaController {
     public Vodka updateVodka(@RequestBody Vodka newVodka, @PathVariable("id") Long vodkaId) {
         return repository.findById(vodkaId)
                 .map(vodka -> {
-                    vodka.setFlavor(newVodka.getFlavor());
+                    vodka.setCountry_origin(newVodka.getCountry_origin());
                     return repository.save(vodka);
                 })
                 .orElseGet(() -> {

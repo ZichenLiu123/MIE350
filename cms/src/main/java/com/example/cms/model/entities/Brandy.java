@@ -4,9 +4,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.swing.Spring;
 
 import org.springframework.lang.Nullable;
 
@@ -17,10 +22,12 @@ import org.springframework.lang.Nullable;
 @Table(name = "brandy")
 public class Brandy{
     @Id
-    private long brandy_id;
+    private long id;
 
-    @Nullable
-    private Integer age;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    @MapsId
+    private Spirit spirit;
 
     @Nullable
     private String barrelType;

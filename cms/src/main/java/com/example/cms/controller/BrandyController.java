@@ -52,7 +52,6 @@ public class BrandyController {
     public Brandy updateBrandy(@RequestBody Brandy newBrandy, @PathVariable("id") Long brandyId) {
         return repository.findById(brandyId)
                 .map(brandy -> {
-                    brandy.setAge(newBrandy.getAge());
                     brandy.setBarrelType(newBrandy.getBarrelType());
                     return repository.save(brandy);
                 })

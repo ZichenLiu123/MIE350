@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RumRepository extends JpaRepository<Rum, Long> {
 
-    // Find tequila by specific type 
+    // Find rum by specific flavour
     @Query(value = "SELECT * FROM rum WHERE flavour = :rumFlavour", nativeQuery = true)
     List<Rum> findByFlavour(@Param("rumFlavour") String rumFlavour);
 

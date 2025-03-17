@@ -1,6 +1,6 @@
 package com.example.cms.model.repositories;
 
-import com.example.cms.model.entities.Alcohol;
+
 import com.example.cms.model.entities.Tequila;
 
 import org.springframework.data.jpa.repository.JpaRepository;

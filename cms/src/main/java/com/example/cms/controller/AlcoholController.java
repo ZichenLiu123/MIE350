@@ -4,6 +4,7 @@ import com.example.cms.controller.dto.AlcoholDto;
 import com.example.cms.controller.exceptions.AlcoholNotFoundException;
 import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.AlcoholCategory;
+import com.example.cms.model.entities.Rum;
 import com.example.cms.model.repositories.AlcoholRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,5 +114,11 @@ public class AlcoholController {
     @DeleteMapping("/alcohol/{id}")
     void deleteAlcohol(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
+    }
+
+    // Search for alcohol by name
+    @GetMapping("/alcohol/search/{name}")
+    public List<Alcohol> searchByName(@PathVariable String name) {
+        return repository.searchByName(name);
     }
 }

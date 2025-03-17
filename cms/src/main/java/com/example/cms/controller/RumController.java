@@ -1,10 +1,12 @@
 package com.example.cms.controller;
 
 import com.example.cms.controller.exceptions.RumNotFoundException;
+import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.Rum;
-import com.example.cms.model.entities.Tequila;
 import com.example.cms.model.repositories.RumRepository;
+import com.example.cms.model.repositories.AlcoholRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +15,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/alcohol/spirit/rum")
 public class RumController {
+    private final AlcoholRepository Arepository;
+
+    @Autowired
     private final RumRepository repository;
 
-    public RumController(RumRepository repository) {
+    public RumController(RumRepository repository, AlcoholRepository Arepository) {
         this.repository = repository;
+        this.Arepository = Arepository;
     }
 
     // GET & POST & DELETE automatically built in Spring Repo. fns
@@ -60,8 +66,8 @@ public class RumController {
 
      // Search for Rum by name
     @GetMapping("/search/{name}")
-    public List<Rum> searchByName(@PathVariable String name) {
-        return repository.searchByName(name);
+    public List<Alcohol> searchByName(@PathVariable String name) {
+        return Arepository.searchByNameRum(name);
     }
 
     // Retrieve Rum by flavour 

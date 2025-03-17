@@ -1,9 +1,10 @@
 package com.example.cms.controller;
 
 import com.example.cms.controller.exceptions.TequilaNotFoundException;
+import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.Tequila;
-import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.TequilaRepository;
+import com.example.cms.model.repositories.AlcoholRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,19 +15,23 @@ import java.util.List;
 @RestController
 @RequestMapping("/alcohol/spirit/tequila")
 public class TequilaController {
+    private final AlcoholRepository Arepository;
+
     @Autowired
     private final TequilaRepository repository;
 
-    public TequilaController(TequilaRepository repository) {
+
+    public TequilaController(TequilaRepository repository, AlcoholRepository Arepository) {
         this.repository = repository;
+        this.Arepository = Arepository;
     }
 
-    @GetMapping("")
+    @GetMapping()
     List<Tequila> retrieveAllTequilas() {
         return repository.findAll();
     }
 
-    @PostMapping("")
+    @PostMapping()
     Tequila createTequila(@RequestBody Tequila newTequila) {
         return repository.save(newTequila);
     }
@@ -54,13 +59,14 @@ public class TequilaController {
         repository.deleteById(id);
     }
 
-    // Search for Tequila by name
-    @GetMapping("/search/{name}")
-    public List<Tequila> searchByName(@PathVariable String name) {
-        return repository.searchByName(name);
+    // Search for tequila by name
+    @GetMapping("/tequila/search/{name}")
+    public List<Alcohol> searchByName(@PathVariable String name) {
+        return Arepository.searchByNameTequila(name);
     }
 
-    // Retrieve tequla by type 
+
+    // Retrieve Tequila by type 
     @GetMapping("/type/{type}")
     public List<Tequila> getByType(@PathVariable String type) {
         return repository.findByType(type);

@@ -589,6 +589,21 @@ INSERT INTO liquors(id, aroma) VALUES
 (506, 'Citrusy'),
 (507, 'Anise');
 
+-- Tequila Data Input --
+INSERT INTO tequila(id, type) VALUES
+(430, 'Reposado'),  -- Clase Azul Tequila Reposado
+(431, 'Anejo'),     -- Don Julio 1942 Tequila
+(432, 'Reposado'),  -- Casamigos Reposado Tequila
+(433, 'Blanco'),    -- Patrón Silver Tequila
+(434, 'Anejo'),     -- Don Julio Añejo Tequila
+(435, 'Blanco'),    -- Casamigos Blanco Tequila
+(436, 'Anejo'),     -- Casamigos Añejo Tequila
+(437, 'Reposado'),  -- Corralejo Reposado Tequila
+(438, 'Blanco'),    -- Espolòn Blanco Tequila
+(439, 'Reposado'),  -- Espolòn Reposado Tequila
+(440, 'Blanco');    -- End of list
+
+
 
 INSERT INTO food(id, name, flavour) VALUES
 (1001, 'Steak (Ribeye)', 'Beef'),

@@ -6,7 +6,12 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.lang.Nullable;
 
 @Entity
 @NoArgsConstructor
@@ -15,7 +20,12 @@ import javax.persistence.Table;
 @Table(name = "tequila")
 public class Tequila{
     @Id
-    private long tequila_id;
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Spirit spirit;
 
     private String type;
 }

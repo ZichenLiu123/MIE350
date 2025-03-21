@@ -22,50 +22,56 @@ INSERT INTO wine_type(id, name) VALUES
 (4, 'Rose');
 
 
-INSERT INTO alcohol(id, category_id, name, price, amount, abv, top1Flavor, top2Flavor, top3Flavor)
+INSERT INTO alcohol (id, category_id, name, price, amount, abv, top1Flavor, top2Flavor, top3Flavor)
 VALUES
-    -- Beers --
-    (1, 1, 'Corona Extra', 17.95, 330, 4.6, 'Fruity', 'Honey', 'Malt'),
-    (2, 1, 'Heineken', 17.50, 330, 5, 'Malt', 'Metallic', 'Bitter'),
-    (3, 1, 'Stella Artois', 3.85, 473, 5, 'Malt', 'Floral', 'Bitter'),
-    (4, 1, 'Guinness', 3.55, 500, 4.2, 'Bitter', 'Roasted', 'Sweet'),
-    (5, 1, 'Budweiser', 2.95, 473, 5, 'Sweet', 'Bitter', 'Malt'),
-    (6, 1, 'Bud Light', 15.05, 341, 4.2, 'Fruity', 'Smooth', 'Malt'),
-    (7, 1, 'Coors Light', 14.25, 355, 4.2, 'Watery', 'Bitter', 'Malt'),
-    (8, 1, 'Miller Lite', 15.25, 355, 4.17, 'Malt', 'Fruity', 'Dry'),
-    (9, 1, 'Heineken Non-alcoholic 0.0', 12.95, 330, 0.01, 'Malt', 'Metallic', 'Bitter'),
-    (10, 1, 'Corona Non-Alcoholic', 11.45, 330, 0.5, 'Fruity', 'Honey', 'Malt'),
-    -- Wines --
-    (21, 2, '21 Gables Chenin Blanc', 38.99, 750, 14.5, 'Fruity', 'Floral', 'Honey'),
-    (22, 2, 'I Frati Lugana', 34.99, 750, 13, 'Citrus', 'Mineral', 'Floral'),
-    (23, 2, 'El Enemigo', 39.99, 750, 13.5, 'Nutty', 'Creamy', 'Tropical'),
-    (24, 2, 'Pouilly-Fuissé Tête de Cuvée', 54.99, 750, 12, 'Buttery', 'Citrus', 'Oak'),
-    (25, 2, 'Jacobs Creek Moscato', 15.40, 750, 7.5, 'Sweet', 'Fruity', 'Floral'),
-    (26, 2, 'Bread & Butter Chardonnay Napa 2022', 20.30, 750, 13.5, 'Vanilla', 'Oak', 'Apple'),
-    (27, 2, 'Babich Black Label Marlborough 2022', 22.00, 750, 12, 'Herbaceous', 'Citrus', 'Floral'),
-    (28, 2, 'Alois Lageder Pinot Grigio Dolomiti Terra Alpina 2023', 21.35, 750, 12.5, 'Crisp', 'Apple', 'Pear'),
-    (29, 2, 'Santa Margherita Pinot Grigio 2023', 11.95, 375, 12.5, 'Dry', 'Citrus', 'Mineral'),
-    (30, 2, 'Decoy Sauvignon Blanc Sonoma County 2021', 32.50, 750, 13.9, 'Grapefruit', 'Herbaceous', 'Tropical'),
-    (31, 2, 'Castello della Sala Cervaro 2022', 115.75, 750, 12.5, 'Elegant', 'Citrus', 'Toasted Almond'),
-    (32, 2, 'Carte Jaune Champagne', 79.99, 750, 12, 'Toasty', 'Citrus', 'Nutty'),
-    (33, 2, 'Moët & Chandon Impérial Brut Champagne', 72.99, 750, 12, 'Apple', 'Brioche', 'Mineral'),
-    (34, 2, 'Bollinger Special Cuvée Brut Aÿ Champagne', 107.99, 750, 12, 'Full-bodied', 'Nutty', 'Toasty'),
-    (35, 2, 'Laurent-Perrier La Cuvée Brut Champagne', 87.99, 750, 12, 'Crisp', 'Citrus', 'Floral'),
-    (36, 2, 'Réserve Champagne', 89.99, 750, 12, 'Delicate', 'Citrus', 'Toasty'),
-    (37, 2, 'Perrier-Jouët Grand Brut Champagne', 84.99, 750, 12, 'Floral', 'Apple', 'Honey'),
-    (38, 2, 'Billecart-Salmon Brut Réserve Champagne', 85.99, 750, 12, 'Elegant', 'Pear', 'Mineral'),
-    (39, 2, 'Laurent-Perrier Cuvée Rosé', 119.99, 750, 12, 'Berry', 'Floral', 'Crisp'),
-    (40, 2, 'G.H. Mumm (Cordon Rouge) Brut Champagne', 79.99, 750, 12, 'Citrus', 'Toasty', 'Honey'),
-    -- Whisky --
-    (100, 3, 'Jameson 12 year Special Reserve', 41.75, 750, 40, 'Fruity', 'Sweet', 'Full'),
-    (101, 3, 'Evan Williams 1783 Small Batch Bourbon', 37.09, 750, 45, 'Oak', 'Rich', 'Full'),
-    (102, 3, 'J.P. Wisers Triple Barrel Rye', 34.16, 750, 45, 'Oak', 'Spicy', 'Vanilla'),
-    (103, 3, 'Jim Beam Bonded Bourbon', 29.95, 750, 50, 'Oak', 'Vanilla', 'Sweet'),
-    (104, 3, 'Jim Beam Pre-Prohibition Style Rye', 20.37, 750, 45, 'Oak', 'Spicy', 'Rich'),
-    (105, 3, 'Stalk & Barrel Red Blend', 40.00, 750, 43, 'Oak', 'Vanilla', 'Fruity'),
-    (106, 3, 'Russells Reserve Single Barrel Bourbon', 71.65, 750, 55, 'Oak', 'Spicy', 'Vanilla'),
-    (109, 3, 'Stagg Jr Barrel Proof Bourbon Batch 13', 310.47, 750, 64.2, 'Oak', 'Vanilla', 'Rich'),
-    -- Rum --
+    (1, 1, 'Corona Extra', 17.95, 330, 4.6, 'Fruity', 'Fruity', 'Sweet'),
+    (2, 1, 'Heineken', 17.50, 330, 5, 'Fruity', 'Fruity', 'Fruity'),
+    (3, 1, 'Stella Artois', 3.85, 473, 5, 'Fruity', 'Woody', 'Woody'),
+    (4, 1, 'Guinness', 3.55, 500, 4.2, 'Sweet', 'Fruity', 'Fruity'),
+    (5, 1, 'Budweiser', 2.95, 473, 5, 'Herbal', 'Herbal', 'Herbal'),
+    (6, 1, 'Bud Light', 15.05, 341, 4.2, 'Fruity', 'Sweet', 'Herbal'),
+    (7, 1, 'Coors Light', 14.25, 355, 4.2, 'Fruity', 'Fruity', 'Fruity'),
+    (8, 1, 'Miller Lite', 15.25, 355, 4.17, 'Fruity', 'Fruity', 'Sweet'),
+    (9, 1, 'Heineken Non-alcoholic 0.0', 12.95, 330, 0.01, 'Fruity', 'Fruity', 'Woody'),
+    (10, 1, 'Corona Non-Alcoholic', 11.45, 330, 0.5, 'Herbal', 'Sweet', 'Herbal'),
+    (11, 1, 'Guinness 0', 11.95, 440, 0.5, 'Sweet', 'Fruity', 'Woody'),
+    (12, 1, 'Clausthaler Premium Non Alcoholic', 2.20, 500, 0.01, 'Sweet', 'Fruity', 'Sweet'),
+    (13, 1, 'Partake Brewing Non-Alcoholic IPA', 2.00, 355, 0.3, 'Woody', 'Fruity', 'Woody'),
+    (14, 1, 'Partake Brewing Non-Alcoholic Pale Ale', 2.00, 355, 0.3, 'Woody', 'Herbal', 'Sweet'),
+    (15, 1, 'Athletic Brewing Run Wild Non-Alcoholic IPA', 13.95, 355, 0.5, 'Woody', 'Fruity', 'Woody'),
+    (16, 1, 'Athletic Brewing Upside Dawn Golden Ale', 12.99, 355, 0.5, 'Herbal', 'Woody', 'Fruity'),
+    (17, 1, 'Clausthaler Dry-Hopped Non-Alcoholic', 2.50, 500, 0.5, 'Herbal', 'Herbal', 'Woody'),
+    (18, 1, 'BrewDog Nanny State', 11.99, 330, 0.5, 'Woody', 'Sweet', 'Herbal'),
+    (19, 1, 'Bravus Oatmeal Dark', 13.99, 355, 0.5, 'Herbal', 'Fruity', 'Woody'),
+    (20, 1, 'Lagunitas IPNA', 10.99, 355, 0.5, 'Fruity', 'Woody', 'Sweet'),
+    (21, 2, '21 Gables Chenin Blanc', 38.99, 750, 14.5, 'Woody', 'Fruity', 'Fruity'),
+    (22, 2, 'I Frati Lugana', 34.99, 750, 13, 'Fruity', 'Sweet', 'Fruity'),
+    (23, 2, 'El Enemigo', 39.99, 750, 13.5, 'Woody', 'Fruity', 'Fruity'),
+    (24, 2, 'Pouilly-Fuissé Tête de Cuvée', 54.99, 750, 12, 'Fruity', 'Fruity', 'Fruity'),
+    (25, 2, 'Jacobs Creek Moscato', 15.40, 750, 7.5, 'Fruity', 'Fruity', 'Sweet'),
+    (26, 2, 'Bread & Butter Chardonnay Napa 2022', 20.30, 750, 13.5, 'Sweet', 'Fruity', 'Fruity'),
+    (27, 2, 'Babich Black Label Marlborough 2022', 22.00, 750, 12, 'Fruity', 'Herbal', 'Woody'),
+    (28, 2, 'Alois Lageder Pinot Grigio Dolomiti Terra Alpina 2023', 21.35, 750, 12.5, 'Fruity', 'Sweet', 'Fruity'),
+    (29, 2, 'Santa Margherita Pinot Grigio 2023', 11.95, 375, 12.5, 'Fruity', 'Fruity', 'Fruity'),
+    (30, 2, 'Decoy Sauvignon Blanc Sonoma County 2021', 32.50, 750, 13.9, 'Fruity', 'Herbal', 'Fruity'),
+    (31, 2, 'Castello della Sala Cervaro 2022', 115.75, 750, 12.5, 'Woody', 'Fruity', 'Fruity'),
+    (32, 2, 'Carte Jaune Champagne', 79.99, 750, 12, 'Fruity', 'Fruity', 'Sweet'),
+    (33, 2, 'Moët & Chandon Impérial Brut Champagne', 72.99, 750, 12, 'Herbal', 'Fruity', 'Sweet'),
+    (34, 2, 'Bollinger Special Cuvée Brut Aÿ Champagne', 107.99, 750, 12, 'Fruity', 'Fruity', 'Herbal'),
+    (35, 2, 'Laurent-Perrier La Cuvée Brut Champagne', 87.99, 750, 12, 'Fruity', 'Sweet', 'Fruity'),
+    (36, 2, 'Réserve Champagne', 89.99, 750, 12, 'Sweet', 'Fruity', 'Herbal'),
+    (37, 2, 'Perrier-Jouët Grand Brut Champagne', 84.99, 750, 12, 'Fruity', 'Sweet', 'Fruity'),
+    (38, 2, 'Billecart-Salmon Brut Réserve Champagne', 85.99, 750, 12, 'Fruity', 'Sweet', 'Fruity'),
+    (39, 2, 'Laurent-Perrier Cuvée Rosé', 119.99, 750, 12, 'Sweet', 'Herbal', 'Sweet'),
+    (40, 2, 'G.H. Mumm (Cordon Rouge) Brut Champagne', 79.99, 750, 12, 'Sweet', 'Herbal', 'Fruity'),
+    (100, 3, 'Jameson 12 year Special Reserve', 41.75, 750, 40, 'Woody', 'Fruity', 'Fruity'),
+    (101, 3, 'Evan Williams 1783 Small Batch Bourbon', 37.09, 750, 45, 'Fruity', 'Sweet', 'Fruity'),
+    (102, 3, 'J.P. Wisers Triple Barrel Rye', 34.16, 750, 45, 'Woody', 'Fruity', 'Fruity'),
+    (103, 3, 'Jim Beam Bonded Bourbon', 29.95, 750, 50, 'Fruity', 'Fruity', 'Fruity'),
+    (104, 3, 'Jim Beam Pre-Prohibition Style Rye', 20.37, 750, 45, 'Fruity', 'Sweet', 'Fruity'),
+    (105, 3, 'Stalk & Barrel Red Blend', 40.00, 750, 43, 'Sweet', 'Fruity', 'Fruity'),
+    (106, 3, 'Russells Reserve Single Barrel Bourbon', 71.65, 750, 55, 'Fruity', 'Herbal', 'Woody'),
+    (109, 3, 'Stagg Jr Barrel Proof Bourbon Batch 13', 310.47, 750, 64.2, 'Fruity', 'Herbal', 'Fruity'),
     (110, 3, 'Papas Pilar Sherry Finish Dark Rum', 50.99, 750, 43, 'Fruity', 'Fruity', 'Sweet'),
     (111, 3, 'Siesta Key Toasted Coconut', 29.99, 750, 35, 'Fruity', 'Fruity', 'Fruity'),
     (112, 3, 'Ron Abuelo 12 Años', 71.50, 750, 40, 'Sweet', 'Sweet', 'Sweet'),
@@ -76,80 +82,66 @@ VALUES
     (117, 3, 'Appleton Estate 21 Year Limited Edition', 177.99, 750, 43, 'Sweet', 'Fruity', 'Woody'),
     (118, 3, 'Appleton Estate 15 Year Black River Casks', 80.89, 750, 43, 'Sweet', 'Sweet', 'Woody'),
     (119, 3, 'Captain Morgan Private Stock Rum', 38.25, 750, 40, 'Sweet', 'Woody', 'Sweet'),
-    -- Vodka --
-    (300, 3, 'Tito''s Handmade Vodka', 37.99, 1750, 40, 'Neutral', 'Rich', 'Sweet'),
-    (301, 3, 'Svedka Vodka', 26.99, 1750, 40, 'Neutral', 'Bitter', 'Spicy'),
-    (302, 3, 'Grey Goose Vodka', 29.99, 750, 40, 'Neutral', 'Rich', 'Bitter'),
-    (303, 3, 'Absolut Vodka', 36.99, 1750, 40, 'Grain', 'Neutral', 'Rich'),
-    (304, 3, 'Ketel One Vodka', 41.99, 1750, 40, 'Grain', 'Rich', 'Bitter'),
-    (305, 3, 'Smirnoff Vodka', 12.99, 750, 40, 'Neutral', 'Grain', 'Sweet'),
-    (306, 3, 'Skyy Vodka', 25.99, 1750, 40, 'Neutral', 'Rich', 'Oily'),
-    (307, 3, 'Stolichnaya Vodka', 18.99, 750, 40, 'Spicy', 'Grain', 'Rich'),
-    (308, 3, 'Chopin Wheat Vodka', 23.09, 750, 40, 'Grain', 'Neutral', 'Rich'),
-    (309, 3, 'Reyka Vodka', 19.99, 750, 40, 'Grain', 'Oily', 'Rich'),
-    (310, 3, 'Russian Standard Vodka', 64.99, 750, 40, 'Grain', 'Neutral', 'Bitter'),
-    (311, 3, 'Cîroc Vodka', 35.10, 750, 40, 'Neutral', 'Rich', 'Bitter'),
-    (312, 3, 'Cîroc Apple', 36.50, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (313, 3, 'Cîroc Peach', 36.50, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (314, 3, 'Cîroc Pineapple', 36.50, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (315, 3, 'Cîroc French Vanilla', 36.50, 750, 35, 'Vanilla', 'Smooth', 'Sweet'),
-    (316, 3, 'Cîroc Coconut', 38.30, 750, 35, 'Sweet', 'Vanilla', 'Smooth'),
-    (317, 3, 'Cîroc Mango', 36.50, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (318, 3, 'Cîroc Black Raspberry', 38.30, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (319, 3, 'Cîroc Summer Citrus', 38.30, 750, 35, 'Citrus', 'Smooth', 'Sweet'),
-    (320, 3, 'Cîroc White Grape', 38.30, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (321, 3, 'Cîroc Red Berry', 36.50, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-    (322, 3, 'Cîroc Amaretto', 38.30, 750, 35, 'Rich', 'Smooth', 'Sweet'),
-    (323, 3, 'Cîroc Summer Watermelon', 36.50, 750, 35, 'Fruity', 'Smooth', 'Sweet'),
-
-    -- Rum --
-
+    (300, 3, 'Tito''s Handmade Vodka', 37.99, 1750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (301, 3, 'Svedka Vodka', 26.99, 1750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (302, 3, 'Grey Goose Vodka', 29.99, 750, 40, 'Sweet', 'Sweet', 'Sweet'),
+    (303, 3, 'Absolut Vodka', 36.99, 1750, 40, 'Sweet', 'Sweet', 'Sweet'),
+    (304, 3, 'Ketel One Vodka', 41.99, 1750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (305, 3, 'Smirnoff Vodka', 12.99, 750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (306, 3, 'Skyy Vodka', 25.99, 1750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (307, 3, 'Stolichnaya Vodka', 18.99, 750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (308, 3, 'Chopin Wheat Vodka', 23.09, 750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (309, 3, 'Reyka Vodka', 19.99, 750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (310, 3, 'Russian Standard Vodka', 64.99, 750, 40, 'Fruity', 'Sweet', 'Sweet'),
+    (311, 3, 'Cîroc Vodka', 35.10, 750, 40, 'Fruity', 'Fruity', 'Sweet'),
+    (312, 3, 'Cîroc Apple', 36.50, 750, 35, 'Fruity', 'Herbal', 'Fruity'),
+    (313, 3, 'Cîroc Peach', 36.50, 750, 35, 'Fruity', 'Sweet', 'Fruity'),
+    (314, 3, 'Cîroc Pineapple', 36.50, 750, 35, 'Fruity', 'Sweet', 'Sweet'),
+    (315, 3, 'Cîroc French Vanilla', 36.50, 750, 35, 'Fruity', 'Sweet', 'Sweet'),
+    (316, 3, 'Cîroc Coconut', 38.30, 750, 35, 'Herbal', 'Sweet', 'Sweet'),
+    (317, 3, 'Cîroc Mango', 36.50, 750, 35, 'Sweet', 'Herbal', 'Sweet'),
+    (318, 3, 'Cîroc Black Raspberry', 38.30, 750, 35, 'Herbal', 'Sweet', 'Fruity'),
+    (319, 3, 'Cîroc Summer Citrus', 38.30, 750, 35, 'Sweet', 'Herbal', 'Fruity'),
+    (320, 3, 'Cîroc White Grape', 38.30, 750, 35, 'Herbal', 'Sweet', 'Fruity'),
+    (321, 3, 'Cîroc Red Berry', 36.50, 750, 35, 'Herbal', 'Sweet', 'Fruity'),
+    (322, 3, 'Cîroc Amaretto', 38.30, 750, 35, 'Herbal', 'Sweet', 'Fruity'),
+    (323, 3, 'Cîroc Summer Watermelon', 36.50, 750, 35, 'Sweet', 'Sweet', 'Sweet'),
     (340, 3, 'Malibu Original Rum', 28.70, 750, 21, 'Fruity', 'Woody', 'Sweet'),
     (341, 3, 'Dead Man''s Fingers Spiced Rum', 32.90, 750, 37.5, 'Fruity', 'Woody', 'Sweet'),
     (342, 3, 'Dead Man''s Fingers Coffee Rum', 32.90, 750, 40, 'Sweet', 'Woody', 'Fruity'),
     (343, 3, 'Dead Man''s Fingers Coconut Rum', 32.90, 750, 40, 'Fruity', 'Fruity', 'Sweet'),
-
-    -- Red Wine --
-    (350, 2, 'Enrique Foster Malbec Firmado', 72.99, 750, 14.5, 'Woody', 'Tart', 'Red Fruit'),
-    (351, 2, 'Harvester Cabernet Sauvignon Paso Robles', 19.99, 750, 14.5, 'Fruity', 'Spicy', 'Rich'),
-    (352, 2, 'D''Autrefois Pinot Noir', 14.99, 750, 12.5, 'Fruity', 'Smooth', 'Sweet'),
-    (353, 2, 'Mascota Vineyards Unanime Cabernet', 25.99, 750, 14.5, 'Floral', 'Tart', 'Tart'),
-    (354, 2, 'Koskil Pinot Noir Patagonia', 16.99, 750, 13, 'Floral', 'Sweet', 'Fruity'),
-    (355, 2, 'Tenuta di Renieri Chianti Classico', 19.99, 750, 14, 'Rich', 'Rich', 'Fruity'),
-    (356, 2, 'Chateau de Thau Cotes de Bourg', 19.99, 750, 14, 'Fruity', 'Fruity', 'Earthy'),
-    (357, 2, 'San Gregorio El Vergal Tempranillo', 12.99, 750, 14.5, 'Fruity', 'Fruity', 'Sweet'),
-    (358, 2, 'Plea', 44.99, 750, 14, 'Fruity', 'Tree Fruit', 'Woody'),
-    (359, 2, '1858 Merlot California', 29.99, 750, 14.9, 'Spicy', 'Spicy', 'Spicy'),
-    (360, 2, 'Sangria', 15.99, 750, 11, 'Fruity', 'Sweet', 'Spicy'),
-
-    -- Rosé Wine --
-    (370, 2, 'Château Minuty Rosé Et Or', 20.00, 750, 12.5, 'Fruity', 'Floral', 'Earthy'),
-    (371, 2, 'Gérard Bertrand Gris Blanc', 12.00, 750, 12.5, 'Earthy', 'Fruity', 'Neutral'),
-    (372, 2, 'Mathilde Chapoutier Grand Ferrage', 18.00, 750, 13, 'Citrus', 'Dry', 'Smooth'),
-    (373, 2, 'Château Puech-Haut Saint-Drézéry Tête De Bélier Rosé', 30.00, 750, 13.5, 'Rich', 'Fruity', 'Rich'),
-    (374, 2, 'M de Château Minuty Rosé', 15.00, 750, 13, 'Neutral', 'Citrus', 'Smooth'),
-    (375, 2, 'Château Puech-Haut Saint-Drézéry Prestige Rosé', 18.00, 750, 13, 'Fruity', 'Neutral', 'Ageing'),
-    (376, 2, 'Château Sainte Roseline Cuvée Lampe De Méduse', 35.00, 750, 13, 'Smooth', 'Fruity', 'Neutral'),
-    (377, 2, 'Domaines Ott ''By.Ott'' Côtes de Provence Rosé', 22.00, 750, 13, 'Fruity', 'Floral', 'Neutral'),
-    (378, 2, 'Château La Tour de l''Evêque Pétale de Rosé', 40.00, 750, 14, 'Citrus', 'Fruity', 'Smooth'),
-    (379, 2, 'Clos Canarelli Corse Figari Rosé', 30.00, 750, 13.5, 'Funky', 'Fruity', 'Funky'),
-
-    -- Sparkling Wine --
-    (400, 2, 'Prosecco', 21.99, 750, 11, 'Fruity', 'Floral', 'Crisp'),
-
-    -- Gin --
-    (420, 3, 'Monkey 47 Dry Gin', 65.00, 750, 47, 'Fruity', 'Herbal', 'Rich'),
-    (421, 3, 'Beefeater London Dry Gin', 18.99, 750, 47, 'Spicy', 'Juniper', 'Herbal'),
-    (422, 3, 'Eden Mill Love Gin', 39.99, 750, 42, 'Floral', 'Rich', 'Fruity'),
-    (423, 3, 'St. George Botanivore Gin', 32.99, 750, 45, 'Floral', 'Rich', 'Herbal'),
-    (424, 3, 'Hernö Juniper Cask Gin', 93.00, 750, 47, 'Juniper', 'Herbal', 'Spicy'),
-    (425, 3, 'Bulrush Gin', 32.99, 750, 44, 'Rich', 'Spicy', 'Earthy'),
-    (426, 3, 'Nolet''s Silver Gin', 34.99, 750, 47.6, 'Fruity', 'Floral', 'Rich'),
-    (427, 3, 'Leopold''s Navy Strength American Gin', 44.00, 750, 57, 'Fruity', 'Floral', 'Spicy'),
-    (428, 3, 'Plymouth Navy Strength Gin', 49.98, 750, 57, 'Fruity', 'Spicy', 'Rich'),
-    (429, 3, 'Sipsmith VJOP London Dry Gin', 50.00, 750, 57.7, 'Juniper', 'Spicy', 'Fruity'),
-
-    -- Tequila/Mezcal --
+    (350, 2, 'Enrique Foster Malbec Firmado', 72.99, 750, 14.5, 'Fruity', 'Fruity', 'Sweet'),
+    (351, 2, 'Harvester Cabernet Sauvignon Paso Robles', 19.99, 750, 14.5, 'Sweet', 'Fruity', 'Sweet'),
+    (352, 2, 'D''Autrefois Pinot Noir', 14.99, 750, 12.5, 'Fruity', 'Sweet', 'Sweet'),
+    (353, 2, 'Mascota Vineyards Unanime Cabernet', 25.99, 750, 14.5, 'Sweet', 'Fruity', 'Sweet'),
+    (354, 2, 'Koskil Pinot Noir Patagonia', 16.99, 750, 13, 'Fruity', 'Fruity', 'Sweet'),
+    (355, 2, 'Tenuta di Renieri Chianti Classico', 19.99, 750, 14, 'Fruity', 'Fruity', 'Sweet'),
+    (356, 2, 'Chateau de Thau Cotes de Bourg', 19.99, 750, 14, 'Herbal', 'Fruity', 'Herbal'),
+    (357, 2, 'San Gregorio El Vergal Tempranillo', 12.99, 750, 14.5, 'Woody', 'Sweet', 'Sweet'),
+    (358, 2, 'Plea', 44.99, 750, 14, 'Fruity', 'Sweet', 'Herbal'),
+    (359, 2, '1858 Merlot California', 29.99, 750, 14.9, 'Sweet', 'Fruity', 'Fruity'),
+    (360, 2, 'Sangria', 15.99, 750, 11, 'Sweet', 'Fruity', 'Herbal'),
+    (370, 2, 'Château Minuty Rosé Et Or', 20.00, 750, 12.5, 'Sweet', 'Fruity', 'Herbal'),
+    (371, 2, 'Gérard Bertrand Gris Blanc', 12.00, 750, 12.5, 'Sweet', 'Fruity', 'Fruity'),
+    (372, 2, 'Mathilde Chapoutier Grand Ferrage', 18.00, 750, 13, 'Fruity', 'Fruity', 'Herbal'),
+    (373, 2, 'Château Puech-Haut Saint-Drézéry Tête De Bélier Rosé', 30.00, 750, 13.5, 'Woody', 'Fruity', 'Herbal'),
+    (374, 2, 'M de Château Minuty Rosé', 15.00, 750, 13, 'Fruity', 'Sweet', 'Sweet'),
+    (375, 2, 'Château Puech-Haut Saint-Drézéry Prestige Rosé', 18.00, 750, 13, 'Sweet', 'Fruity', 'Fruity'),
+    (376, 2, 'Château Sainte Roseline Cuvée Lampe De Méduse', 35.00, 750, 13, 'Sweet', 'Fruity', 'Fruity'),
+    (377, 2, 'Domaines Ott ''By.Ott'' Côtes de Provence Rosé', 22.00, 750, 13, 'Sweet', 'Herbal', 'Sweet'),
+    (378, 2, 'Château La Tour de l''Evêque Pétale de Rosé', 40.00, 750, 14, 'Herbal', 'Sweet', 'Sweet'),
+    (379, 2, 'Clos Canarelli Corse Figari Rosé', 30.00, 750, 13.5, 'Fruity', 'Fruity', 'Sweet'),
+    (400, 2, 'Prosecco', 21.99, 750, 11, 'Woody', 'Woody', 'Fruity'),
+    (420, 3, 'Monkey 47 Dry Gin', 65.00, 750, 47, 'Fruity', 'Herbal', 'Fruity'),
+    (421, 3, 'Beefeater London Dry Gin', 18.99, 750, 47, 'Herbal', 'Herbal', 'Herbal'),
+    (422, 3, 'Eden Mill Love Gin', 39.99, 750, 42, 'Fruity', 'Fruity', 'Fruity'),
+    (423, 3, 'St. George Botanivore Gin', 32.99, 750, 45, 'Fruity', 'Fruity', 'Herbal'),
+    (424, 3, 'Hernö Juniper Cask Gin', 93.00, 750, 47, 'Herbal', 'Herbal', 'Herbal'),
+    (425, 3, 'Bulrush Gin', 32.99, 750, 44, 'Fruity', 'Herbal', 'Fruity'),
+    (426, 3, 'Nolet''s Silver Gin', 34.99, 750, 47.6, 'Fruity', 'Fruity', 'Fruity'),
+    (427, 3, 'Leopold''s Navy Strength American Gin', 44.00, 750, 57, 'Fruity', 'Fruity', 'Herbal'),
+    (428, 3, 'Plymouth Navy Strength Gin', 49.98, 750, 57, 'Fruity', 'Herbal', 'Fruity'),
+    (429, 3, 'Sipsmith VJOP London Dry Gin', 50.00, 750, 57.7, 'Herbal', 'Herbal', 'Fruity'),
     (430, 3, 'Clase Azul Tequila Reposado', 205.00, 750, 40, 'Sweet', 'Sweet', 'Sweet'),
     (431, 3, 'Don Julio 1942 Tequila', 181.00, 750, 40, 'Woody', 'Fruity', 'Sweet'),
     (432, 3, 'Casamigos Reposado Tequila', 54.00, 750, 40, 'Sweet', 'Woody', 'Sweet'),
@@ -161,108 +153,100 @@ VALUES
     (438, 3, 'Espolòn Blanco Tequila', 29.00, 750, 40, 'Woody', 'Sweet', 'Herbal'),
     (439, 3, 'Espolòn Reposado Tequila', 32.00, 750, 40, 'Sweet', 'Fruity', 'Herbal'),
     (440, 3, 'Siempre Tequila Plata', 49.99, 750, 40, 'Fruity', 'Sweet', 'Sweet'),
-
-    -- Whisky/Whiskey --
-    (450, 3, 'Chivas Regal 18', 149.95, 750, 40, 'Fruity', 'Spicy', 'Rich'),
-    (451, 3, 'Johnnie Walker Blue Label', 359.95, 750, 40, 'Floral', 'Sweet', 'Rich'),
-    (452, 3, 'Jameson 12 year Special Reserve', 41.75, 750, 40, 'Fruity', 'Sweet', 'Full'),
-    (453, 3, 'Evan Williams 1783 Small Batch Bourbon', 37.09, 750, 45, 'Rich', 'Sweet', 'Full'),
-    (454, 3, 'J.P. Wiser''s Triple Barrel Rye', 34.16, 750, 45, 'Spicy', 'Sweet', 'Vanilla'),
-    (455, 3, 'Jim Beam Bonded Bourbon', 29.95, 750, 50, 'Vanilla', 'Spicy', 'Sweet'),
-    (456, 3, 'Jim Beam Pre-Prohibition Style Rye', 20.37, 750, 45, 'Spicy', 'Vanilla', 'Rich'),
-    (457, 3, 'Stalk & Barrel Red Blend', 40.00, 750, 43, 'Vanilla', 'Spicy', 'Fruity'),
-    (458, 3, 'Russell''s Reserve Single Barrel Bourbon', 71.65, 750, 55, 'Spicy', 'Sweet', 'Vanilla'),
-    (459, 3, 'George Dickel 13 Year Bottled in Bond Tennessee Whisky', 51.98, 750, 50, 'Spicy', 'Sweet', 'Rich'),
-    (460, 3, 'Compass Box Spice Tree', 65.33, 750, 46, 'Spicy', 'Sweet', 'Rich'),
-    (461, 3, 'Stagg Jr Barrel Proof Bourbon Batch 13', 310.47, 750, 64.2, 'Full', 'Vanilla', 'Rich'),
-    (462, 3, 'Wild Turkey Rare Breed Barrel Proof Bourbon', 56.90, 750, 58.4, 'Vanilla', 'Full', 'Rich'),
-    (463, 3, 'Knob Creek 18 Year Bourbon', 169.99, 750, 50, 'Spicy', 'Rich', 'Full'),
-    (464, 3, 'Larceny Barrel Proof Batch A124', 64.99, 750, 62.1, 'Rich', 'Full', 'Sweet'),
-    (465, 3, 'Booker''s Bourbon Batch 2024-01 "Springfield Batch"', 89.99, 750, 62.25, 'Rich', 'Full', 'Sweet'),
-
-    -- Brandy --
+    (450, 3, 'Chivas Regal 18', 149.95, 750, 40, 'Herbal', 'Fruity', 'Sweet'),
+    (451, 3, 'Johnnie Walker Blue Label', 359.95, 750, 40, 'Fruity', 'Sweet', 'Fruity'),
+    (452, 3, 'Jameson 12 year Special Reserve', 41.75, 750, 40, 'Woody', 'Fruity', 'Fruity'),
+    (453, 3, 'Evan Williams 1783 Small Batch Bourbon', 37.09, 750, 45, 'Fruity', 'Sweet', 'Fruity'),
+    (454, 3, 'J.P. Wiser''s Triple Barrel Rye', 34.16, 750, 45, 'Woody', 'Fruity', 'Fruity'),
+    (455, 3, 'Jim Beam Bonded Bourbon', 29.95, 750, 50, 'Fruity', 'Fruity', 'Fruity'),
+    (456, 3, 'Jim Beam Pre-Prohibition Style Rye', 20.37, 750, 45, 'Fruity', 'Sweet', 'Fruity'),
+    (457, 3, 'Stalk & Barrel Red Blend', 40.00, 750, 43, 'Sweet', 'Fruity', 'Fruity'),
+    (458, 3, 'Russell''s Reserve Single Barrel Bourbon', 71.65, 750, 55, 'Fruity', 'Herbal', 'Woody'),
+    (459, 3, 'George Dickel 13 Year Bottled in Bond Tennessee Whisky', 51.98, 750, 50, 'Fruity', 'Sweet', 'Fruity'),
+    (460, 3, 'Compass Box Spice Tree', 65.33, 750, 46, 'Fruity', 'Fruity', 'Fruity'),
+    (461, 3, 'Stagg Jr Barrel Proof Bourbon Batch 13', 310.47, 750, 64.2, 'Fruity', 'Herbal', 'Fruity'),
+    (462, 3, 'Wild Turkey Rare Breed Barrel Proof Bourbon', 56.90, 750, 58.4, 'Woody', 'Fruity', 'Fruity'),
+    (463, 3, 'Knob Creek 18 Year Bourbon', 169.99, 750, 50, 'Fruity', 'Sweet', 'Fruity'),
+    (464, 3, 'Larceny Barrel Proof Batch A124', 64.99, 750, 62.1, 'Fruity', 'Sweet', 'Sweet'),
+    (465, 3, 'Booker''s Bourbon Batch 2024-01 "Springfield Batch"', 89.99, 750, 62.25, 'Fruity', 'Sweet', 'Sweet'),
     (470, 3, 'Château de Montifaud Napoléon Petite Champagne Cognac', 61.81, 750, 40, 'Rich', 'Fruity', 'Sweet'),
-    (471, 3, 'Caravedo Pisco Mosto Verde', 42.85, 750, 43, 'Earthy', 'Rich', 'Fruity'),
+    (471, 3, 'Caravedo Pisco Mosto Verde', 42.85, 750, 43, 'Fruity', 'Fruity', 'Fruity'),
     (472, 3, 'St. George Pear Brandy', 44.25, 750, 40, 'Fruity', 'Sweet', 'Herbal'),
-    (473, 3, 'Rémy Martin 1738 Accord Royal Cognac', 68.13, 750, 40, 'Fruity', 'Rich', 'Sweet'),
-    (474, 3, 'Pierre Ferrand Ambre Cognac', 51.98, 750, 40, 'Fruity', 'Sweet', 'Rich'),
-    (475, 3, 'Christian Drouin Sélection Calvados', 39.34, 750, 40, 'Floral', 'Tart', 'Fruity'),
-    (476, 3, 'Martell VS Single Distillery', 40.04, 750, 40, 'Rich', 'Sweet', 'Fruity'),
-    (477, 3, 'Martell Blue Swift', 55.49, 750, 40, 'Fruity', 'Sweet', 'Rich'),
-    (478, 3, 'Copper & Kings Floodwall Apple Brandy', 39.34, 750, 50, 'Rich', 'Sweet', 'Nutty'),
-    (479, 3, 'Cardenal Mendoza Solera Gran Reserva Brandy de Jerez', 44.25, 750, 40, 'Woody', 'Spicy', 'Rich'),
-
-    -- Liqueurs/Bitters --
-    (480, 3, 'Aperol', 32.70, 750, 11, 'Funky', 'Sweet', 'Tart'),
-    (481, 3, 'Jagermeister', 30.35, 750, 35, 'Sweet', 'Spicy', 'Herbal'),
-    (482, 3, 'Campari', 29.99, 750, 24, 'Bitter', 'Herbal', 'Citrus'),
-    (483, 3, 'Fernet-Branca', 34.99, 750, 39, 'Bitter', 'Herbal', 'Spicy'),
-    (484, 3, 'Chartreuse Green', 65.99, 750, 55, 'Herbal', 'Spicy', 'Sweet'),
-    (485, 3, 'Chartreuse Yellow', 64.99, 750, 40, 'Herbal', 'Sweet', 'Floral'),
-    (486, 3, 'Cointreau', 39.99, 750, 40, 'Citrus', 'Sweet', 'Rich'),
-    (487, 3, 'Grand Marnier Cordon Rouge', 41.99, 750, 40, 'Citrus', 'Rich', 'Sweet'),
-    (488, 3, 'Luxardo Maraschino', 35.99, 750, 32, 'Cherry', 'Sweet', 'Rich'),
-    (489, 3, 'St-Germain Elderflower', 37.99, 750, 20, 'Floral', 'Sweet', 'Fruity'),
-    (490, 3, 'Benedictine DOM', 38.99, 750, 40, 'Herbal', 'Spicy', 'Sweet'),
-    (491, 3, 'Amaro Montenegro', 34.99, 750, 23, 'Herbal', 'Bitter', 'Sweet'),
-    (492, 3, 'Averna Amaro', 32.99, 750, 29, 'Herbal', 'Bitter', 'Sweet'),
-    (493, 3, 'Cynar', 28.99, 750, 16.5, 'Bitter', 'Herbal', 'Earthy'),
-    (494, 3, 'Ramazzotti Amaro', 31.99, 750, 30, 'Herbal', 'Sweet', 'Spicy'),
-    (495, 3, 'Kahlúa', 27.99, 750, 20, 'Coffee', 'Sweet', 'Rich'),
-    (496, 3, 'Baileys Irish Cream', 29.99, 750, 17, 'Creamy', 'Sweet', 'Coffee'),
-    (497, 3, 'Drambuie', 41.99, 750, 40, 'Honey', 'Spicy', 'Sweet'),
-    (498, 3, 'Chambord', 36.99, 750, 16.5, 'Raspberry', 'Sweet', 'Rich'),
-    (499, 3, 'Frangelico', 32.99, 750, 20, 'Hazelnut', 'Sweet', 'Rich'),
-    (500, 3, 'Limoncello di Capri', 24.99, 750, 30, 'Citrus', 'Sweet', 'Tart'),
-    (501, 3, 'Galliano L''Autentico', 32.99, 750, 42.3, 'Herbal', 'Vanilla', 'Spicy'),
-    (502, 3, 'Ancho Reyes Original', 34.99, 750, 40, 'Spicy', 'Sweet', 'Herbal'),
-    (503, 3, 'Licor 43', 29.99, 750, 31, 'Vanilla', 'Sweet', 'Rich'),
-    (504, 3, 'Tia Maria', 29.99, 750, 20, 'Coffee', 'Sweet', 'Rich'),
-    (505, 3, 'Raki (Yeni Raki)', 27.99, 750, 45, 'Anise', 'Herbal', 'Sweet'),
-    (506, 3, 'Grand Marnier', 41.99, 750, 40, 'Citrus', 'Rich', 'Sweet'),
-    (507, 3, 'Ouzo', 22.99, 750, 40, 'Herbal', 'Sweet', 'Anise'),
-
-    -- Non-Alcoholic --
-    (900, 4, 'Heineken Non-Alcoholic 0.0', 12.95, 1980, 0.01, 'Malt', 'Metallic', 'Bitter'),
-    (901, 4, 'Corona Non-Alcoholic', 11.45, 1980, 0.5, 'Fruity', 'Honey', 'Malt'),
-    (902, 4, 'Guinness 0', 11.95, 440, 0.5, 'Bitter', 'Sweet', 'Coffee'),
-    (903, 4, 'Clausthaler Premium Non Alcoholic', 2.20, 500, 0.01, 'Neutral', 'Lemon', 'Grassy'),
-    (904, 4, 'Partake Brewing Non-Alcoholic IPA', 2.00, 355, 0.3, 'Sweet', 'Citrus', 'Caramel'),
-    (905, 4, 'Partake Brewing Non-Alcoholic Pale Ale', 2.00, 355, 0.3, 'Malt', 'Citrus', 'Dry'),
-    (906, 4, 'Athletic Brewing Run Wild Non-Alcoholic IPA', 13.95, 355, 0.5, 'Malt', 'Bitter', 'Neutral'),
-    (907, 4, 'Nozeco Sparkling Dealcoholized', 12.95, 750, 0.01, 'Fruity', 'Floral', 'Neutral'),
-    (908, 4, 'Luna De Murviedro Dealcoholized Sparkling Rose', 9.95, 750, 0.01, 'Fruity', 'Sweet', 'Fresh'),
-    (909, 4, 'Nozeco Sparkling Rose Dealcoholized', 11.45, 750, 0.5, 'Crisp', 'Red Fruit', 'Neutral'),
-    (910, 4, 'Henkell Dealcoholized Sparkling Wine', 11.95, 750, 0.01, 'Lemon', 'Honey', 'Tree Fruit'),
-    (911, 4, 'Tarapacá Dealcoholized Sauvignon Blanc', 10.95, 750, 0.5, 'Sweet', 'Citrus', 'Fresh'),
-    (912, 4, 'Ritual Zero Proof Whiskey Alternative', 42.00, 750, 0.0, 'Spicy', 'Sweet', 'Caramel'),
-    (913, 4, 'Seedlip Garden 108', 51.00, 750, 0.5, 'Herbal', 'Citrus', 'Lemon'),
-    (914, 4, 'Lyres American Malt', 44.00, 750, 0.5, 'Sweet', 'Malt', 'Spicy'),
-    (915, 4, 'Gruvi Dry Secco', 14.99, 750, 0.5, 'Crisp', 'Fruity', 'Floral'),
-    (916, 4, 'Fre Alcohol-Removed Chardonnay', 9.99, 750, 0.5, 'Fruity', 'Citrus', 'Smooth'),
-    (917, 4, 'Ariel Cabernet Sauvignon', 12.99, 750, 0.5, 'Rich', 'Fruity', 'Earthy'),
-    (918, 4, 'Leitz Eins Zwei Zero Riesling', 18.50, 750, 0.0, 'Fruity', 'Floral', 'Sweet'),
-    (919, 4, 'Pierre Zéro Merlot', 15.99, 750, 0.0, 'Fruity', 'Earthy', 'Smooth'),
-    (920, 4, 'Surely Non-Alcoholic Sparkling Rosé', 24.99, 750, 0.5, 'Fruity', 'Floral', 'Sweet'),
-    (921, 4, 'St. Regis Chardonnay', 11.99, 750, 0.5, 'Fruity', 'Floral', 'Earthy'),
-    (922, 4, 'Töst Sparkling White Tea', 8.99, 750, 0.0, 'Tea', 'Fruity', 'Floral'),
-    (923, 4, 'Thomson & Scott Noughty Rosé', 20.99, 750, 0.5, 'Fruity', 'Floral', 'Sweet'),
-    (924, 4, 'Grüvi Bubbly Rosé', 14.99, 750, 0.5, 'Fruity', 'Crisp', 'Floral'),
-    (925, 4, 'Athletic Brewing Upside Dawn Golden Ale', 12.99, 355, 0.5, 'Malt', 'Floral', 'Crisp'),
-    (926, 4, 'Clausthaler Dry-Hopped Non-Alcoholic', 2.50, 500, 0.5, 'Hoppy', 'Malt', 'Floral'),
-    (927, 4, 'BrewDog Nanny State', 11.99, 330, 0.5, 'Hoppy', 'Bitter', 'Malt'),
-    (928, 4, 'Bravus Oatmeal Dark', 13.99, 355, 0.5, 'Roasted', 'Sweet', 'Coffee'),
-    (929, 4, 'Lagunitas IPNA', 10.99, 355, 0.5, 'Hoppy', 'Citrus', 'Malt'),
-    (930, 4, 'WellBeing Victory Wheat', 10.99, 355, 0.5, 'Citrus', 'Wheat', 'Smooth'),
-    (931, 4, 'Erdinger Weissbier Alkoholfrei', 3.50, 500, 0.5, 'Wheat', 'Fruity', 'Smooth'),
-    (932, 4, 'Suntory All-Free', 12.99, 350, 0.0, 'Crisp', 'Malty', 'Floral'),
-    (933, 4, 'Seedlip Spice 94', 37.99, 750, 0.0, 'Spicy', 'Herbal', 'Citrus'),
-    (934, 4, 'Ritual Zero Proof Gin Alternative', 26.99, 750, 0.0, 'Juniper', 'Citrus', 'Floral'),
-    (935, 4, 'Monday Zero Alcohol Gin', 39.99, 750, 0.0, 'Juniper', 'Herbal', 'Citrus'),
-    (936, 4, 'Lyre"s Dry London Spirit', 35.00, 700, 0.0, 'Juniper', 'Spicy', 'Floral'),
-    (937, 4, 'Free Spirits Non-Alcoholic Bourbon', 35.00, 750, 0.0, 'Caramel', 'Spicy', 'Sweet'),
-    (938, 4, 'Arkay Alcohol-Free Whisky', 27.50, 750, 0.0, 'Smoky', 'Spicy', 'Sweet'),
-    (939, 4, 'Fluère Spiced Cane Dark Roast', 30.00, 700, 0.0, 'Spicy', 'Sweet', 'Woody');
+    (473, 3, 'Rémy Martin 1738 Accord Royal Cognac', 68.13, 750, 40, 'Fruity', 'Fruity', 'Sweet'),
+    (474, 3, 'Pierre Ferrand Ambre Cognac', 51.98, 750, 40, 'Fruity', 'Sweet', 'Fruity'),
+    (475, 3, 'Christian Drouin Sélection Calvados', 39.34, 750, 40, 'Fruity', 'Fruity', 'Fruity'),
+    (476, 3, 'Martell VS Single Distillery', 40.04, 750, 40, 'Fruity', 'Sweet', 'Fruity'),
+    (477, 3, 'Martell Blue Swift', 55.49, 750, 40, 'Fruity', 'Sweet', 'Fruity'),
+    (478, 3, 'Copper & Kings Floodwall Apple Brandy', 39.34, 750, 50, 'Fruity', 'Sweet', 'Sweet'),
+    (479, 3, 'Cardenal Mendoza Solera Gran Reserva Brandy de Jerez', 44.25, 750, 40, 'Woody', 'Herbal', 'Fruity'),
+    (480, 3, 'Aperol', 32.70, 750, 11, 'Herbal', 'Sweet', 'Fruity'),
+    (481, 3, 'Jagermeister', 30.35, 750, 35, 'Sweet', 'Herbal', 'Herbal'),
+    (482, 3, 'Campari', 29.99, 750, 24, 'Herbal', 'Herbal', 'Fruity'),
+    (483, 3, 'Fernet-Branca', 34.99, 750, 39, 'Herbal', 'Herbal', 'Herbal'),
+    (484, 3, 'Chartreuse Green', 65.99, 750, 55, 'Herbal', 'Herbal', 'Sweet'),
+    (485, 3, 'Chartreuse Yellow', 64.99, 750, 40, 'Herbal', 'Sweet', 'Fruity'),
+    (486, 3, 'Cointreau', 39.99, 750, 40, 'Fruity', 'Sweet', 'Fruity'),
+    (487, 3, 'Grand Marnier Cordon Rouge', 41.99, 750, 40, 'Fruity', 'Fruity', 'Sweet'),
+    (488, 3, 'Luxardo Maraschino', 35.99, 750, 32, 'Fruity', 'Sweet', 'Fruity'),
+    (489, 3, 'St-Germain Elderflower', 37.99, 750, 20, 'Fruity', 'Sweet', 'Fruity'),
+    (490, 3, 'Benedictine DOM', 38.99, 750, 40, 'Herbal', 'Herbal', 'Sweet'),
+    (491, 3, 'Amaro Montenegro', 34.99, 750, 23, 'Herbal', 'Herbal', 'Sweet'),
+    (492, 3, 'Averna Amaro', 32.99, 750, 29, 'Herbal', 'Herbal', 'Sweet'),
+    (493, 3, 'Cynar', 28.99, 750, 16.5, 'Herbal', 'Herbal', 'Fruity'),
+    (494, 3, 'Ramazzotti Amaro', 31.99, 750, 30, 'Herbal', 'Sweet', 'Herbal'),
+    (495, 3, 'Kahlúa', 27.99, 750, 20, 'Herbal', 'Sweet', 'Fruity'),
+    (496, 3, 'Baileys Irish Cream', 29.99, 750, 17, 'Sweet', 'Sweet', 'Herbal'),
+    (497, 3, 'Drambuie', 41.99, 750, 40, 'Fruity', 'Herbal', 'Sweet'),
+    (498, 3, 'Chambord', 36.99, 750, 16.5, 'Fruity', 'Sweet', 'Fruity'),
+    (499, 3, 'Frangelico', 32.99, 750, 20, 'Sweet', 'Sweet', 'Fruity'),
+    (500, 3, 'Limoncello di Capri', 24.99, 750, 30, 'Fruity', 'Sweet', 'Fruity'),
+    (501, 3, 'Galliano L''Autentico', 32.99, 750, 42.3, 'Herbal', 'Sweet', 'Sweet'),
+    (502, 3, 'Ancho Reyes Original', 34.99, 750, 40, 'Herbal', 'Herbal', 'Fruity'),
+    (503, 3, 'Licor 43', 29.99, 750, 31, 'Sweet', 'Sweet', 'Fruity'),
+    (504, 3, 'Tia Maria', 29.99, 750, 20, 'Herbal', 'Herbal', 'Sweet'),
+    (505, 3, 'Raki (Yeni Raki)', 27.99, 750, 45, 'Fruity', 'Fruity', 'Sweet'),
+    (506, 3, 'Grand Marnier', 41.99, 750, 40, 'Herbal', 'Sweet', 'Sweet'),
+    (507, 3, 'Ouzo', 22.99, 750, 40, 'Sweet', 'Fruity', 'Woody'),
+    (900, 4, 'Heineken Non-Alcoholic 0.0', 12.95, 1980, 0.01, 'Fruity', 'Fruity', 'Woody'),
+    (901, 4, 'Corona Non-Alcoholic', 11.45, 1980, 0.5, 'Herbal', 'Sweet', 'Herbal'),
+    (902, 4, 'Guinness 0', 11.95, 440, 0.5, 'Sweet', 'Fruity', 'Woody'),
+    (903, 4, 'Clausthaler Premium Non Alcoholic', 2.20, 500, 0.01, 'Sweet', 'Fruity', 'Sweet'),
+    (904, 4, 'Partake Brewing Non-Alcoholic IPA', 2.00, 355, 0.3, 'Woody', 'Fruity', 'Woody'),
+    (905, 4, 'Partake Brewing Non-Alcoholic Pale Ale', 2.00, 355, 0.3, 'Woody', 'Herbal', 'Sweet'),
+    (906, 4, 'Athletic Brewing Run Wild Non-Alcoholic IPA', 13.95, 355, 0.5, 'Woody', 'Fruity', 'Woody'),
+    (907, 4, 'Nozeco Sparkling Dealcoholized', 12.95, 750, 0.01, 'Woody', 'Fruity', 'Sweet'),
+    (908, 4, 'Luna De Murviedro Dealcoholized Sparkling Rose', 9.95, 750, 0.01, 'Fruity', 'Fruity', 'Fruity'),
+    (909, 4, 'Nozeco Sparkling Rose Dealcoholized', 11.45, 750, 0.5, 'Sweet', 'Fruity', 'Woody'),
+    (910, 4, 'Henkell Dealcoholized Sparkling Wine', 11.95, 750, 0.01, 'Woody', 'Fruity', 'Sweet'),
+    (911, 4, 'Tarapacá Dealcoholized Sauvignon Blanc', 10.95, 750, 0.5, 'Fruity', 'Fruity', 'Sweet'),
+    (912, 4, 'Ritual Zero Proof Whiskey Alternative', 42.00, 750, 0.0, 'Herbal', 'Fruity', 'Fruity'),
+    (913, 4, 'Seedlip Garden 108', 51.00, 750, 0.5, 'Sweet', 'Woody', 'Herbal'),
+    (914, 4, 'Lyres American Malt', 44.00, 750, 0.5, 'Herbal', 'Herbal', 'Fruity'),
+    (915, 4, 'Gruvi Dry Secco', 14.99, 750, 0.5, 'Fruity', 'Sweet', 'Fruity'),
+    (916, 4, 'Fre Alcohol-Removed Chardonnay', 9.99, 750, 0.5, 'Fruity', 'Fruity', 'Sweet'),
+    (917, 4, 'Ariel Cabernet Sauvignon', 12.99, 750, 0.5, 'Fruity', 'Fruity', 'Fruity'),
+    (918, 4, 'Leitz Eins Zwei Zero Riesling', 18.50, 750, 0.0, 'Fruity', 'Fruity', 'Sweet'),
+    (919, 4, 'Pierre Zéro Merlot', 15.99, 750, 0.0, 'Herbal', 'Fruity', 'Fruity'),
+    (920, 4, 'Surely Non-Alcoholic Sparkling Rosé', 24.99, 750, 0.5, 'Fruity', 'Fruity', 'Fruity'),
+    (921, 4, 'St. Regis Chardonnay', 11.99, 750, 0.5, 'Fruity', 'Woody', 'Fruity'),
+    (922, 4, 'Töst Sparkling White Tea', 8.99, 750, 0.0, 'Herbal', 'Fruity', 'Fruity'),
+    (923, 4, 'Thomson & Scott Noughty Rosé', 20.99, 750, 0.5, 'Fruity', 'Fruity', 'Fruity'),
+    (924, 4, 'Grüvi Bubbly Rosé', 14.99, 750, 0.5, 'Fruity', 'Fruity', 'Fruity'),
+    (925, 4, 'Athletic Brewing Upside Dawn Golden Ale', 12.99, 355, 0.5, 'Herbal', 'Woody', 'Fruity'),
+    (926, 4, 'Clausthaler Dry-Hopped Non-Alcoholic', 2.50, 500, 0.5, 'Herbal', 'Herbal', 'Woody'),
+    (927, 4, 'BrewDog Nanny State', 11.99, 330, 0.5, 'Woody', 'Sweet', 'Herbal'),
+    (928, 4, 'Bravus Oatmeal Dark', 13.99, 355, 0.5, 'Herbal', 'Fruity', 'Woody'),
+    (929, 4, 'Lagunitas IPNA', 10.99, 355, 0.5, 'Fruity', 'Woody', 'Sweet'),
+    (930, 4, 'WellBeing Victory Wheat', 10.99, 355, 0.5, 'Woody', 'Fruity', 'Sweet'),
+    (931, 4, 'Erdinger Weissbier Alkoholfrei', 3.50, 500, 0.5, 'Woody', 'Woody', 'Fruity'),
+    (932, 4, 'Suntory All-Free', 12.99, 350, 0.0, 'Herbal', 'Sweet', 'Sweet'),
+    (933, 4, 'Seedlip Spice 94', 37.99, 750, 0.0, 'Herbal', 'Fruity', 'Fruity'),
+    (934, 4, 'Ritual Zero Proof Gin Alternative', 26.99, 750, 0.0, 'Herbal', 'Herbal', 'Fruity'),
+    (935, 4, 'Monday Zero Alcohol Gin', 39.99, 750, 0.0, 'Sweet', 'Herbal', 'Sweet'),
+    (936, 4, 'Lyre"s Dry London Spirit', 35.00, 700, 0.0, 'Herbal', 'Herbal', 'Sweet'),
+    (937, 4, 'Free Spirits Non-Alcoholic Bourbon', 35.00, 750, 0.0, 'Herbal', 'Sweet', 'Woody'),
+    (938, 4, 'Arkay Alcohol-Free Whisky', 27.50, 750, 0.0, 'Fruity', 'Fruity', 'Sweet'),
+    (939, 4, 'Fluère Spiced Cane Dark Roast', 30.00, 700, 0.0, 'Fruity', 'Sweet', 'Sweet');
 
 -- Non Alcoholic Data Input --
 INSERT INTO non_alcoholic (id, isCarbonated, alcoholicEquivalent) VALUES
@@ -644,7 +628,210 @@ INSERT INTO food(id, name, flavour) VALUES
 (1050, 'Stuffed Bell Peppers', 'Vegetarian'),
 (1051, 'Mango Sticky Rice', 'Dessert');
 
-INSERT INTO pairing_table(id, category_id, food_id, recommend_rank, match_flavour) VALUES
-(10001, 2, 1001, 1, 'Rich, Spicy'),
-(10002, 1, 1001, 2,  'Rich, Full');
+INSERT INTO pairing_table (id, category_id, food_id, recommend_rank, match_flavour)
+VALUES
+    -- 1) Steak (Ribeye) -> Red Wine (2), Whisky (3)
+    (10001, 2, 1001, 1, 'Rich, Spicy'),
+    (10002, 3, 1001, 2, 'Rich, Full'),
+
+    -- 2) Filet Mignon -> Red Wine (2), Brandy (3)
+    (10003, 2, 1002, 1, 'Fruity, Earthy'),
+    (10004, 3, 1002, 2, 'Rich, Fruity'),
+
+    -- 3) Grilled Salmon -> White Wine (2), Rosé (2)
+    (10005, 2, 1003, 1, 'Fruity, Earthy'),
+    (10006, 2, 1003, 2, 'Fruity, Floral'),
+
+    -- 4) Spaghetti Carbonara -> White Wine (2), Sparkling Wine (2)
+    (10007, 2, 1004, 1, 'Rich, Creamy'),
+    (10008, 2, 1004, 2, 'Crisp, Citrus'),
+
+    -- 5) Sushi -> Sake (3), White Wine (2)
+    (10009, 3, 1005, 1, 'Fruity, Floral'),
+    (10010, 2, 1005, 2, 'Floral, Sweet'),
+
+    -- 6) BBQ Ribs -> Red Wine (2), Bourbon (3)
+    (10011, 2, 1006, 1, 'Spicy, Rich'),
+    (10012, 3, 1006, 2, 'Sweet, Spicy'),
+
+    -- 7) Cheese Platter (Soft & Aged) -> Sparkling Wine (2), Brandy (3)
+    (10013, 2, 1007, 1, 'Fruity, Ageing'),
+    (10014, 3, 1007, 2, 'Rich, Fruity'),
+
+    -- 8) Mushroom Risotto -> White Wine (2), Amaro (3)
+    (10015, 2, 1008, 1, 'Earthy, Floral'),
+    (10016, 3, 1008, 2, 'Herbal, Bitter'),
+
+    -- 9) Spicy Thai Curry -> Riesling (2), Beer (1)
+    (10017, 2, 1009, 1, 'Fruity, Sweet'),
+    (10018, 1, 1009, 2, 'Fruity, Crisp'),
+
+    -- 10) Roasted Chicken -> White Wine (2), White Wine (2)
+    (10019, 2, 1010, 1, 'Woody, Earthy'),
+    (10020, 2, 1010, 2, 'Fruity, Floral'),
+
+    -- 11) Lobster with Butter Sauce -> Sparkling Wine (2), Champagne (2)
+    (10021, 2, 1011, 1, 'Crisp, Citrus'),
+    (10022, 2, 1011, 2, 'Fruity, Citrus'),
+
+    -- 12) Beef Tacos -> Tequila (3), Beer (1)
+    (10023, 3, 1012, 1, 'Spicy, Herbal'),
+    (10024, 1, 1012, 2, 'Fruity, Malt'),
+
+    -- 13) Vegetarian Mezze Platter -> Rosé (2), Gin (3)
+    (10025, 2, 1013, 1, 'Fruity, Floral'),
+    (10026, 3, 1013, 2, 'Herbal, Citrus'),
+
+    -- 14) Lamb Shank -> Red Wine (2), Brandy (3)
+    (10027, 2, 1014, 1, 'Rich, Spicy'),
+    (10028, 3, 1014, 2, 'Woody, Spicy'),
+
+    -- 15) Margherita Pizza -> Red Wine (2), Beer (1)
+    (10029, 2, 1015, 1, 'Fruity, Earthy'),
+    (10030, 1, 1015, 2, 'Malt, Floral'),
+
+    -- 16) Oysters -> Champagne (2), Vodka (3)
+    (10031, 2, 1016, 1, 'Citrus, Tree Fruit'),
+    (10032, 3, 1016, 2, 'Neutral, Crisp'),
+
+    -- 17) Dark Chocolate Cake -> Brandy (3), Port Wine (2)
+    (10033, 3, 1017, 1, 'Rich, Sweet'),
+    (10034, 2, 1017, 2, 'Sweet, Fruity'),
+
+    -- 18) Pad Thai -> White Wine (2), Sake (3)
+    (10035, 2, 1018, 1, 'Fruity, Sweet'),
+    (10036, 3, 1018, 2, 'Fruity, Sweet'),
+
+    -- 19) Duck à l’Orange -> Red Wine (2), Grand Marnier (3)
+    (10037, 2, 1019, 1, 'Fruity, Tart'),
+    (10038, 3, 1019, 2, 'Citrus, Sweet'),
+
+    -- 20) Grilled Vegetables -> Rosé (2), White Wine (2)
+    (10039, 2, 1020, 1, 'Fruity, Earthy'),
+    (10040, 2, 1020, 2, 'Fruity, Earthy'),
+
+    -- 21) Charcuterie Board -> Red Wine (2), Whisky (3)
+    (10041, 2, 1021, 1, 'Rich, Earthy'),
+    (10042, 3, 1021, 2, 'Spicy, Rich'),
+
+    -- 22) Grilled Shrimp -> White Wine (2), Sparkling Wine (2)
+    (10043, 2, 1022, 1, 'Citrus, Fruity'),
+    (10044, 2, 1022, 2, 'Crisp, Citrus'),
+
+    -- 23) Cheesecake -> Limoncello (3), Moscato (2)
+    (10045, 3, 1023, 1, 'Citrus, Sweet'),
+    (10046, 2, 1023, 2, 'Fruity, Sweet'),
+
+    -- 24) Roast Duck -> Red Wine (2), Whisky (3)
+    (10047, 2, 1024, 1, 'Fruity, Earthy'),
+    (10048, 3, 1024, 2, 'Rich, Spicy'),
+
+    -- 25) Indian Butter Chicken -> White Wine (2), Beer (1)
+    (10049, 2, 1025, 1, 'Fruity, Sweet'),
+    (10050, 1, 1025, 2, 'Malt, Spicy'),
+
+    -- 26) Falafel -> Rosé (2), Gin (3)
+    (10051, 2, 1026, 1, 'Fruity, Floral'),
+    (10052, 3, 1026, 2, 'Herbal, Citrus'),
+
+    -- 27) Beef Stroganoff -> Red Wine (2), Brandy (3)
+    (10053, 2, 1027, 1, 'Rich, Creamy'),
+    (10054, 3, 1027, 2, 'Rich, Sweet'),
+
+    -- 28) Fried Calamari -> Sparkling Wine (2), White Wine (2)
+    (10055, 2, 1028, 1, 'Crisp, Citrus'),
+    (10056, 2, 1028, 2, 'Fruity, Earthy'),
+
+    -- 29) Beef Burger -> Beer (1), Whisky (3)
+    (10057, 1, 1029, 1, 'Malt, Bitter'),
+    (10058, 3, 1029, 2, 'Spicy, Rich'),
+
+    -- 30) Caesar Salad -> White Wine (2), Sparkling Wine (2)
+    (10059, 2, 1030, 1, 'Fruity, Crisp'),
+    (10060, 2, 1030, 2, 'Floral, Crisp'),
+
+    -- 31) Tiramisu -> Coffee Liqueur (3), Brandy (3)
+    (10061, 3, 1031, 1, 'Rich, Sweet'),
+    (10062, 3, 1031, 2, 'Sweet, Rich'),
+
+    -- 32) Prosciutto & Melon -> Rosé (2), Prosecco (2)
+    (10063, 2, 1032, 1, 'Fruity, Sweet'),
+    (10064, 2, 1032, 2, 'Fruity, Floral'),
+
+    -- 33) Beef Wellington -> Red Wine (2), Brandy (3)
+    (10065, 2, 1033, 1, 'Rich, Earthy'),
+    (10066, 3, 1033, 2, 'Fruity, Spicy'),
+
+    -- 34) Eggplant Parmesan -> Red Wine (2), Sparkling Wine (2)
+    (10067, 2, 1034, 1, 'Fruity, Earthy'),
+    (10068, 2, 1034, 2, 'Crisp, Floral'),
+
+    -- 35) Biryani (Chicken) -> Riesling (2), Beer (1)
+    (10069, 2, 1035, 1, 'Fruity, Sweet'),
+    (10070, 1, 1035, 2, 'Fruity, Spicy'),
+
+    -- 36) Tuna Tartare -> White Wine (2), Sake (3)
+    (10071, 2, 1036, 1, 'Fruity, Citrus'),
+    (10072, 3, 1036, 2, 'Fruity, Floral'),
+
+    -- 37) Paella (Seafood) -> White Wine (2), Sangria (2)
+    (10073, 2, 1037, 1, 'Fruity, Earthy'),
+    (10074, 2, 1037, 2, 'Fruity, Sweet'),
+
+    -- 38) Shakshuka -> Rosé (2), White Wine (2)
+    (10075, 2, 1038, 1, 'Fruity, Spicy'),
+    (10076, 2, 1038, 2, 'Fruity, Earthy'),
+
+    -- 39) Cheeseburger -> Beer (1), Bourbon (3)
+    (10077, 1, 1039, 1, 'Malt, Sweet'),
+    (10078, 3, 1039, 2, 'Sweet, Spicy'),
+
+    -- 40) Brisket -> Red Wine (2), Whisky (3)
+    (10079, 2, 1040, 1, 'Rich, Earthy'),
+    (10080, 3, 1040, 2, 'Rich, Spicy'),
+
+    -- 41) Caprese Salad -> White Wine (2), Rosé (2)
+    (10081, 2, 1041, 1, 'Fruity, Floral'),
+    (10082, 2, 1041, 2, 'Fruity, Floral'),
+
+    -- 42) Grilled Portobello Mushroom -> Red Wine (2), Amaro (3)
+    (10083, 2, 1042, 1, 'Earthy, Fruity'),
+    (10084, 3, 1042, 2, 'Herbal, Bitter'),
+
+    -- 43) Korean Fried Chicken -> Beer (1), Soju (3)
+    (10085, 1, 1043, 1, 'Malt, Crisp'),
+    (10086, 3, 1043, 2, 'Neutral, Sweet'),
+
+    -- 44) Ceviche -> White Wine (2), Pisco (3)
+    (10087, 2, 1044, 1, 'Citrus, Fruity'),
+    (10088, 3, 1044, 2, 'Fruity, Earthy'),
+
+    -- 45) Pork Schnitzel -> Beer (1), White Wine (2)
+    (10089, 1, 1045, 1, 'Malt, Floral'),
+    (10090, 2, 1045, 2, 'Fruity, Sweet'),
+
+    -- 46) French Onion Soup -> Red Wine (2), Sherry (2)
+    (10091, 2, 1046, 1, 'Rich, Earthy'),
+    (10092, 2, 1046, 2, 'Woody, Sweet'),
+
+    -- 47) Chocolate Lava Cake -> Port (2), Brandy (3)
+    (10093, 2, 1047, 1, 'Sweet, Rich'),
+    (10094, 3, 1047, 2, 'Sweet, Rich'),
+
+    -- 48) Spicy Ramen -> Sake (3), Beer (1)
+    (10095, 3, 1048, 1, 'Fruity, Sweet'),
+    (10096, 1, 1048, 2, 'Crisp, Malt'),
+
+    -- 49) Chicken Souvlaki -> White Wine (2), Ouzo (3)
+    (10097, 2, 1049, 1, 'Citrus, Herbal'),
+    (10098, 3, 1049, 2, 'Herbal, Sweet'),
+
+    -- 50) Stuffed Bell Peppers -> Red Wine (2), Rosé (2)
+    (10099, 2, 1050, 1, 'Fruity, Earthy'),
+    (10100, 2, 1050, 2, 'Fruity, Sweet'),
+
+    -- 51) Mango Sticky Rice -> Riesling (2), Moscato (2)
+    (10101, 2, 1051, 1, 'Fruity, Sweet'),
+    (10102, 2, 1051, 2, 'Fruity, Sweet');
+
 

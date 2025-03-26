@@ -35,6 +35,7 @@ public class SpiritController {
         return repository.findAll();
     }
 
+
     @GetMapping("/spirit/{id}")
     Spirit retrieveSpirit(@PathVariable("id") long spiritId) {
         return repository.findById(spiritId)

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.query.Param;
 
 import com.example.cms.model.entities.Non_Alcoholic;
+import com.example.cms.model.entities.Wine;
 
 @Repository
 public interface Non_AlcoholicRepository extends JpaRepository<Non_Alcoholic, Long> {
@@ -19,6 +20,9 @@ public interface Non_AlcoholicRepository extends JpaRepository<Non_Alcoholic, Lo
     
     @Query(value = "SELECT * FROM non_alcoholic WHERE price < :maxPrice", nativeQuery = true) 
     List<Non_Alcoholic> findUnderPrice(@Param("maxPrice") BigDecimal maxPrice);
+
+    @Query(value = "SELECT * FROM NON_ALCOHOLIC n JOIN alcohol a ON n.id = a.id WHERE ISCARBONATED = :iscarbonated AND ALCOHOLICEQUIVALENT = :alcoholicequivalent AND top1flavor = :flavor AND price < :price ORDER BY price", nativeQuery = true)
+    List<Non_Alcoholic> findNonAlcohol(@Param("iscarbonated") Boolean iscarbonated, @Param("alcoholicequivalent") String alcoholicequivalent, @Param("flavor") String flavor, @Param("price") Double price);
     
     List<Non_Alcoholic> findByIsCarbonatedTrue();
     List<Non_Alcoholic> findByIsCarbonatedFalse();

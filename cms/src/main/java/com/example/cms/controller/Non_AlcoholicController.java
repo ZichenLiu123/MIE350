@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.cms.controller.dto.AlcoholDto;
+import com.example.cms.controller.dto.NonAlcoholicDto;
+import com.example.cms.controller.dto.RequestDto;
 import com.example.cms.controller.exceptions.Non_AlcoholicNotFoundException;
 import com.example.cms.model.entities.Non_Alcoholic;
+import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.AlcoholRepository;
 import com.example.cms.model.repositories.Non_AlcoholicRepository;
 
@@ -55,6 +60,11 @@ public class Non_AlcoholicController {
     @GetMapping("/non-carbonated")
     public List<Non_Alcoholic> getNonCarbonatedDrinks() {
         return repository.findByIsCarbonatedFalse();
+    }
+    
+    @PostMapping("/find")
+    List<Non_Alcoholic> pairWine(@RequestBody NonAlcoholicDto Dto) {
+        return repository.findNonAlcohol(Dto.getIsCarbonated(), Dto.getAlcoholicEquivalent(), Dto.getFlavour(), Dto.getPrice());
     }
 
     @GetMapping("/search")

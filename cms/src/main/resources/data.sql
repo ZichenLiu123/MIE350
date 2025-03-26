@@ -630,6 +630,11 @@ INSERT INTO food(id, name, flavour) VALUES
 
 INSERT INTO pairing_table (id, category_id, food_id, recommend_rank, match_flavour)
 VALUES
+
+    -- ( Meat , White wine )
+
+    -- ( Fish , Beer & )
+
     -- 1) Steak (Ribeye) -> Red Wine (2), Whisky (3)
     (10001, 2, 1001, 1, 'Rich, Spicy'),
     (10002, 3, 1001, 2, 'Rich, Full'),

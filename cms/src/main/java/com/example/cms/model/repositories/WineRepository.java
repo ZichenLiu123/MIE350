@@ -24,4 +24,9 @@ public interface WineRepository extends JpaRepository<Wine, Long> {
     // Get all aged wines (where age is greater than a certain number)
     @Query(value = "SELECT * FROM wine WHERE age >= :minAge", nativeQuery = true)
     List<Wine> findAgedWines(@Param("minAge") Integer minAge);
+
+    @Query(value = "SELECT * FROM WINE w JOIN alcohol a ON w.id = a.id WHERE wine_type_id = :wineType AND top1flavor = :flavor AND price < :price ORDER BY price", nativeQuery = true)
+    List<Wine> findAgedWines(@Param("wineType") Long wineType, @Param("flavor") String flavor, @Param("price") Double price);
 }
+
+

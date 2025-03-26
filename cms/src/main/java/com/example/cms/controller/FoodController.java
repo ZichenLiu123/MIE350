@@ -35,6 +35,17 @@ public class FoodController {
                 .orElseThrow(() -> new FoodNotFoundException(Id));
     }
 
+    // POST
+
+    // 1. Type of food ( 5 types )
+    // 2. Flavor
+    // 3. Price
+
+    
+
+
+
+
     // Post | Create
     @PostMapping("/food")
     Food createFood(@RequestBody Food newFood) {

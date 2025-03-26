@@ -1,6 +1,10 @@
 package com.example.cms.controller;
 
+import com.example.cms.controller.dto.AlcoholDto;
+import com.example.cms.controller.dto.RequestDto;
 import com.example.cms.controller.exceptions.WineNotFoundException;
+import com.example.cms.model.entities.Alcohol;
+import com.example.cms.model.entities.AlcoholCategory;
 import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.WineRepository;
 
@@ -11,7 +15,6 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/wine")
 public class WineController {
 
     @Autowired
@@ -22,7 +25,7 @@ public class WineController {
     }
 
     // Retrieve all wines
-    @GetMapping ("")
+    @GetMapping ("/wine")
     public List<Wine> retrieveAllWines() {
         return repository.findAll();
     }
@@ -53,6 +56,27 @@ public class WineController {
                     return repository.save(newWine);
                 });
     }
+
+    // POST (Pairings) -- Wine
+
+//    {
+//        "WineType": "Red", ( ask frontend to implement)
+//            "Flavor": "Sweet",
+//            "Price": 3
+//    }
+
+    // 1. retrieve values for "WineType"
+    // 2. retrieve values for "FlavorType"
+
+    // 3. Call SQL function from WineRepository
+
+
+    @PostMapping("/wine")
+    List<Wine> pairWine(@RequestBody RequestDto requestDto) {
+        // Find from category table with category string instead
+        return repository.findAgedWines(requestDto.getAlcoholType(), requestDto.getFlavor(), requestDto.getPrice());
+    }
+
 
     // Delete a wine by ID
     @DeleteMapping("/{id}")

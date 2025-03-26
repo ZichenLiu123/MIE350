@@ -60,6 +60,17 @@ public class AlcoholController {
 
         return repository.save(newAlcohol);
     }
+
+    // POST (Pairings) -- Wine
+
+    // 1. retrieve values for "Type"
+    // 2. retrieve values for "FlavorTYpe"
+
+    //
+
+
+
+
     // Put | Update
     @PutMapping("/alcohol/{id}")
     Alcohol updateAlcohol(@RequestBody AlcoholDto alcoholDto, @PathVariable("id") long alcoholId) {
@@ -108,6 +119,10 @@ public class AlcoholController {
                     return repository.save(newAlcohol);
                 });
     }
+
+
+
+
 
     // Delete | Delete
 

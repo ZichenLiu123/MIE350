@@ -1,9 +1,11 @@
 package com.example.cms.controller;
 
+import com.example.cms.controller.dto.RequestDto;
 import com.example.cms.controller.exceptions.AlcoholNotFoundException;
 import com.example.cms.controller.exceptions.SpiritNotFoundException;
 import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.Spirit;
+import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.SpiritRepository;
 import com.example.cms.model.repositories.AlcoholRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/spirit")
 public class SpiritController {
     @Autowired
     private final SpiritRepository repository;
@@ -34,10 +35,16 @@ public class SpiritController {
         return repository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/spirit/{id}")
     Spirit retrieveSpirit(@PathVariable("id") long spiritId) {
         return repository.findById(spiritId)
                 .orElseThrow(() -> new SpiritNotFoundException(spiritId));
+    }
+
+    @PostMapping("/spirit")
+    List<Spirit> pairSpirit(@RequestBody RequestDto requestDto) {
+        // Find from category table with category string instead
+        return repository.findSpirit(requestDto.getAlcoholType(), requestDto.getFlavor(), requestDto.getPrice());
     }
 
 //    // Delete | Delete

@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.example.cms.model.entities.Non_Alcoholic;
 import com.example.cms.model.entities.Wine;
@@ -21,8 +21,11 @@ public interface Non_AlcoholicRepository extends JpaRepository<Non_Alcoholic, Lo
     @Query(value = "SELECT * FROM non_alcoholic WHERE price < :maxPrice", nativeQuery = true) 
     List<Non_Alcoholic> findUnderPrice(@Param("maxPrice") BigDecimal maxPrice);
 
-    @Query(value = "SELECT * FROM NON_ALCOHOLIC n JOIN alcohol a ON n.id = a.id WHERE ISCARBONATED = :iscarbonated AND ALCOHOLICEQUIVALENT = :alcoholicequivalent AND top1flavor = :flavor AND price < :price ORDER BY price", nativeQuery = true)
-    List<Non_Alcoholic> findNonAlcohol(@Param("iscarbonated") Boolean iscarbonated, @Param("alcoholicequivalent") String alcoholicequivalent, @Param("flavor") String flavor, @Param("price") Double price);
+
+    //Added recommendation
+    @Query(value = "SELECT * FROM non_alcoholic n JOIN alcohol a ON n.id = a.id WHERE alcoholicEquivalent = :alcoholicEquivalent AND top1flavor = :flavor AND price < :price AND isCarbonated = :isCarbonated ORDER BY price", nativeQuery = true)
+    List<Non_Alcoholic> non_alcoholicRec(@Param("price") Double price, @Param("flavor") String flavor, @Param("isCarbonated") Boolean carbonate, @Param("alcoholicEquivalent") String alcoholicEquivalent);
+    
     
     List<Non_Alcoholic> findByIsCarbonatedTrue();
     List<Non_Alcoholic> findByIsCarbonatedFalse();

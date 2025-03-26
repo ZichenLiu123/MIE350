@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class NonAlcoholicDto {
+public class Non_alcoholicDto {
+    private String flavor;
+    private Double price;
     private Boolean isCarbonated;
     private String alcoholicEquivalent;
-    private String flavour;
-    private Double price;
 }

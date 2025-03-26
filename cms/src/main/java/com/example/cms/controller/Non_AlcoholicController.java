@@ -2,7 +2,6 @@ package com.example.cms.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,19 +13,21 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.cms.controller.dto.AlcoholDto;
-import com.example.cms.controller.dto.NonAlcoholicDto;
 import com.example.cms.controller.dto.RequestDto;
 import com.example.cms.controller.exceptions.Non_AlcoholicNotFoundException;
 import com.example.cms.model.entities.Non_Alcoholic;
 import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.AlcoholRepository;
+import com.example.cms.controller.dto.Non_alcoholicDto;
+import com.example.cms.controller.exceptions.Non_AlcoholicNotFoundException;
+import com.example.cms.model.entities.Non_Alcoholic;
 import com.example.cms.model.repositories.Non_AlcoholicRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/non-alcoholic")
 
 public class Non_AlcoholicController {
     private final Non_AlcoholicRepository repository;
@@ -36,44 +37,43 @@ public class Non_AlcoholicController {
         this.repository = repository;
     }
 
-    @GetMapping
+    @GetMapping("/alcohol/non-alcoholic/")
     public List<Non_Alcoholic> retrieveAllNon_AlcoholicDrinks() {
         return repository.findAll();
     }
 
-    @PostMapping
-    public Non_Alcoholic createNon_AlcoholicDrink(@RequestBody Non_Alcoholic newDrink) {
-        return repository.save(newDrink);
+    // For recommending Non-alco
+    @PostMapping("/alcohol/non-alcoholic/")
+    public List<Non_Alcoholic> non_Alcoholics_rec(@RequestBody Non_alcoholicDto non_alcoholicDto) {
+        return repository.non_alcoholicRec(non_alcoholicDto.getPrice(), non_alcoholicDto.getFlavor(),
+                non_alcoholicDto.getIsCarbonated(), non_alcoholicDto.getAlcoholicEquivalent());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/alcohol/non-alcoholic/{id}")
     public Non_Alcoholic retrieveNon_AlcoholicDrink(@PathVariable("id") Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new Non_AlcoholicNotFoundException(id));
     }
 
-    @GetMapping("/carbonated")
+    @GetMapping("/alcohol/non-alcoholic/carbonated")
     public List<Non_Alcoholic> getCarbonatedDrinks() {
         return repository.findByIsCarbonatedTrue();
     }
 
-    @GetMapping("/non-carbonated")
+    @GetMapping("/alcohol/non-alcoholic/non-carbonated")
     public List<Non_Alcoholic> getNonCarbonatedDrinks() {
         return repository.findByIsCarbonatedFalse();
     }
     
-    @PostMapping("/find")
-    List<Non_Alcoholic> pairWine(@RequestBody NonAlcoholicDto Dto) {
-        return repository.findNonAlcohol(Dto.getIsCarbonated(), Dto.getAlcoholicEquivalent(), Dto.getFlavour(), Dto.getPrice());
-    }
 
-    @GetMapping("/search")
+    @GetMapping("/alcohol/non-alcoholic/search")
     public List<Non_Alcoholic> searchAlcoholicEquivalent(@RequestParam String alcoholicEquivalent) {
         return repository.findByAlcoholicEquivalentContainingIgnoreCase(alcoholicEquivalent);
     }
 
-    @PutMapping("/{id}")
-    public Non_Alcoholic updateNon_AlcoholicDrink(@RequestBody Non_Alcoholic updatedDrink, @PathVariable("id") Long id) {
+    @PutMapping("/alcohol/non-alcoholic/{id}")
+    public Non_Alcoholic updateNon_AlcoholicDrink(@RequestBody Non_Alcoholic updatedDrink,
+            @PathVariable("id") Long id) {
         return repository.findById(id)
                 .map(drink -> {
                     drink.setIsCarbonated(updatedDrink.getIsCarbonated());
@@ -86,7 +86,7 @@ public class Non_AlcoholicController {
                 });
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/alcohol/non-alcoholic/{id}")
     public void deleteNon_AlcoholicDrink(@PathVariable("id") Long id) {
         if (!repository.existsById(id)) {
             throw new Non_AlcoholicNotFoundException(id);

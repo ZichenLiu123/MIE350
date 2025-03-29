@@ -27,6 +27,9 @@ public interface WineRepository extends JpaRepository<Wine, Long> {
 
     @Query(value = "SELECT * FROM WINE w JOIN alcohol a ON w.id = a.id WHERE wine_type_id = :wineType AND top1flavor = :flavor AND price < :price ORDER BY price", nativeQuery = true)
     List<Wine> findAgedWines(@Param("wineType") Long wineType, @Param("flavor") String flavor, @Param("price") Double price);
+
+    @Query(value = "SELECT price FROM alcohol a JOIN wine w ON a.id = w.id WHERE w.wine_type_id = :wineType AND a.top1flavor = :flavor ORDER BY price", nativeQuery = true)
+    List<Double> findPricesByTypeAndFlavor(@Param("wineType") Long wineType, @Param("flavor") String flavor);
 }
 
 

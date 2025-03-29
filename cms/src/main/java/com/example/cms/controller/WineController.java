@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -73,7 +74,28 @@ public class WineController {
     @PostMapping("/wine/search")
     List<Wine> pairWine(@RequestBody RequestDto requestDto) {
         // Find from category table with category string instead
-        return repository.findAgedWines(requestDto.getAlcoholType(), requestDto.getFlavor(), requestDto.getPrice());
+        Long wineType = requestDto.getAlcoholType();
+        String flavor = requestDto.getFlavor();
+        Double quartile = requestDto.getPrice();
+
+        List<Double> priceList = repository.findPricesByTypeAndFlavor(wineType, flavor);
+        List<Double> sortedPrices = priceList.stream().sorted().collect(Collectors.toList());
+
+        if (!sortedPrices.isEmpty()) {
+            int index;
+            if (quartile == 0) {
+                index = (int) (0.35 * sortedPrices.size());
+            } else if (quartile == 1) {
+                index = (int) (0.65 * sortedPrices.size());
+            } else {
+                index = sortedPrices.size() - 1;
+            }
+
+            Double threshold = sortedPrices.get(index);
+            return repository.findAgedWines(wineType, flavor, threshold);
+        } else {
+            return List.of();
+        }
     }
 
     // Delete a wine by ID

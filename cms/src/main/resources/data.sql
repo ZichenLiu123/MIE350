@@ -304,6 +304,7 @@ INSERT INTO beer(id, beerType, beerOrigin) VALUES
 (9, 'Non-alcoholic Beer', 'Amsterdam, Netherlands'),
 (10, 'Non-alcoholic Beer', 'Mexico City, Mexico');
 
+
 -- Wine Data Input --
 -- (1, 'White'),
 -- (2, 'Sparkling'),

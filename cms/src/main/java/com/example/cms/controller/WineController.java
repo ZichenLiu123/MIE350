@@ -77,7 +77,6 @@ public class WineController {
         return repository.findAgedWines(requestDto.getAlcoholType(), requestDto.getFlavor(), requestDto.getPrice());
     }
 
-
     // Delete a wine by ID
     @DeleteMapping("/{id}")
     public void deleteWine(@PathVariable("id") Long wineId) {

@@ -25,13 +25,13 @@ public class WineController {
     }
 
     // Retrieve all wines
-    @GetMapping ("/wine")
+    @GetMapping("/wine")
     public List<Wine> retrieveAllWines() {
         return repository.findAll();
     }
 
     // Create a new wine entry
-    @PostMapping ("")
+    @PostMapping("")
     public Wine createWine(@RequestBody Wine newWine) {
         return repository.save(newWine);
     }
@@ -59,17 +59,16 @@ public class WineController {
 
     // POST (Pairings) -- Wine
 
-//    {
-//        "WineType": "Red", ( ask frontend to implement)
-//            "Flavor": "Sweet",
-//            "Price": 3
-//    }
+    // {
+    // "WineType": "Red", ( ask frontend to implement)
+    // "Flavor": "Sweet",
+    // "Price": 3
+    // }
 
     // 1. retrieve values for "WineType"
     // 2. retrieve values for "FlavorType"
 
     // 3. Call SQL function from WineRepository
-
 
     @PostMapping("/wine")
     List<Wine> pairWine(@RequestBody RequestDto requestDto) {

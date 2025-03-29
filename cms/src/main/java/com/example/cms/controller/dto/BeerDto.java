@@ -6,9 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BeerDto {
-    private Long id;
-    private String name;
-    private Long price;
+    private Double price;
     private String beerType;
     private String beerOrigin;
+    private String flavour;
 }

@@ -1,7 +1,9 @@
 package com.example.cms.controller;
 
 import com.example.cms.model.entities.Beer;
+import com.example.cms.model.entities.Spirit;
 import com.example.cms.model.repositories.BeerRepository;
+import com.example.cms.controller.dto.BeerDto;
 import com.example.cms.controller.exceptions.BeerNotFoundException;
 import com.example.cms.model.repositories.AlcoholRepository;
 
@@ -65,6 +67,12 @@ public class BeerController {
     @DeleteMapping("/{id}")
     void deleteBeer(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
+    }
+
+    @PostMapping("/search")
+    List<Beer> pairSpirit(@RequestBody BeerDto beerDto) {
+        // Find from category table with category string instead
+        return repository.findBeer(beerDto.getBeerType(), beerDto.getBeerOrigin(), beerDto.getFlavour(), beerDto.getPrice());
     }
 
 }

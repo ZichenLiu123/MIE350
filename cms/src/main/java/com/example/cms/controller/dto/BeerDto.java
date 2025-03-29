@@ -8,5 +8,5 @@ import lombok.Setter;
 public class BeerDto {
     private String beerType;
     private String flavour;
-    private Integer price;
+    private Double price;
 }

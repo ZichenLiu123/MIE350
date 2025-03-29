@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -69,9 +70,30 @@ public class BeerController {
     }
 
     @PostMapping("/beer/search")
-    List<Beer> pairSpirit(@RequestBody BeerDto beerDto) {
-        // Find from category table with category string instead
-        return repository.findBeer(beerDto.getBeerType(), beerDto.getFlavour(), beerDto.getPrice());
+    List<Beer> pairWine(@RequestBody BeerDto beerDto) {
+        String beerType = beerDto.getBeerType();
+        String flavour = beerDto.getFlavour();
+        Double quartile = beerDto.getPrice();
+
+        List<Double> priceList = repository.findPricesByTypeAndFlavor(beerType, flavour);
+        List<Double> sortedPrices = priceList.stream().sorted().collect(Collectors.toList());
+
+        if (!sortedPrices.isEmpty()) {
+            int index;
+            if (quartile == 0) {
+                index = (int) (0.35 * sortedPrices.size());
+            } else if (quartile == 1) {
+                index = (int) (0.65 * sortedPrices.size());
+            } else {
+                index = sortedPrices.size() - 1;
+            }
+
+            Double threshold = sortedPrices.get(index);
+            return repository.findBeer(beerType, flavour, threshold);
+        } else {
+            return List.of();
+        }
+
     }
 
 }

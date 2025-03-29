@@ -24,26 +24,49 @@ INSERT INTO wine_type(id, name) VALUES
 
 INSERT INTO alcohol (id, category_id, name, price, amount, abv, top1Flavor, top2Flavor, top3Flavor)
 VALUES
-    (1, 1, 'Corona Extra', 17.95, 330, 4.6, 'Fruity', 'Fruity', 'Sweet'),
-    (2, 1, 'Heineken', 17.50, 330, 5, 'Fruity', 'Fruity', 'Fruity'),
-    (3, 1, 'Stella Artois', 3.85, 473, 5, 'Fruity', 'Woody', 'Woody'),
-    (4, 1, 'Guinness', 3.55, 500, 4.2, 'Sweet', 'Fruity', 'Fruity'),
-    (5, 1, 'Budweiser', 2.95, 473, 5, 'Herbal', 'Herbal', 'Herbal'),
-    (6, 1, 'Bud Light', 15.05, 341, 4.2, 'Fruity', 'Sweet', 'Herbal'),
-    (7, 1, 'Coors Light', 14.25, 355, 4.2, 'Fruity', 'Fruity', 'Fruity'),
-    (8, 1, 'Miller Lite', 15.25, 355, 4.17, 'Fruity', 'Fruity', 'Sweet'),
-    (9, 1, 'Heineken Non-alcoholic 0.0', 12.95, 330, 0.01, 'Fruity', 'Fruity', 'Woody'),
-    (10, 1, 'Corona Non-Alcoholic', 11.45, 330, 0.5, 'Herbal', 'Sweet', 'Herbal'),
-    (11, 1, 'Guinness 0', 11.95, 440, 0.5, 'Sweet', 'Fruity', 'Woody'),
-    (12, 1, 'Clausthaler Premium Non Alcoholic', 2.20, 500, 0.01, 'Sweet', 'Fruity', 'Sweet'),
-    (13, 1, 'Partake Brewing Non-Alcoholic IPA', 2.00, 355, 0.3, 'Woody', 'Fruity', 'Woody'),
-    (14, 1, 'Partake Brewing Non-Alcoholic Pale Ale', 2.00, 355, 0.3, 'Woody', 'Herbal', 'Sweet'),
-    (15, 1, 'Athletic Brewing Run Wild Non-Alcoholic IPA', 13.95, 355, 0.5, 'Woody', 'Fruity', 'Woody'),
-    (16, 1, 'Athletic Brewing Upside Dawn Golden Ale', 12.99, 355, 0.5, 'Herbal', 'Woody', 'Fruity'),
-    (17, 1, 'Clausthaler Dry-Hopped Non-Alcoholic', 2.50, 500, 0.5, 'Herbal', 'Herbal', 'Woody'),
-    (18, 1, 'BrewDog Nanny State', 11.99, 330, 0.5, 'Woody', 'Sweet', 'Herbal'),
-    (19, 1, 'Bravus Oatmeal Dark', 13.99, 355, 0.5, 'Herbal', 'Fruity', 'Woody'),
-    (20, 1, 'Lagunitas IPNA', 10.99, 355, 0.5, 'Fruity', 'Woody', 'Sweet'),
+    -- LAGERS (More variations added)
+    (600, 1, 'Corona Extra', 5.25, 330, 4.6, 'Fruity', 'Fruity', 'Sweet'),
+    (601, 1, 'Heineken', 5.00, 330, 5.0, 'Fruity', 'Fruity', 'Fruity'),
+    (602, 1, 'Budweiser', 4.50, 473, 5.0, 'Herbal', 'Herbal', 'Herbal'),
+    (603, 1, 'Coors Banquet', 5.75, 355, 5.0, 'Woody', 'Fruity', 'Sweet'),
+    (604, 1, 'Miller High Life', 4.25, 355, 4.6, 'Sweet', 'Herbal', 'Woody'),
+    (605, 1, 'Asahi Super Dry', 6.00, 330, 5.0, 'Woody', 'Herbal', 'Fruity'),
+    (606, 1, 'Carlsberg', 5.50, 330, 5.0, 'Fruity', 'Sweet', 'Woody'),
+    (607, 1, 'Becks', 5.00, 500, 5.0, 'Woody', 'Fruity', 'Herbal'),
+    (608, 1, 'Kronenbourg 1664', 6.25, 500, 5.5, 'Sweet', 'Woody', 'Fruity'),
+
+    -- STOUTS (More flavors covered)
+    (609, 1, 'Guinness', 5.25, 500, 4.2, 'Sweet', 'Fruity', 'Fruity'),
+    (610, 1, 'Sierra Nevada Stout', 6.00, 355, 5.6, 'Herbal', 'Woody', 'Fruity'),
+    (611, 1, 'Murphy’s Irish Stout', 5.50, 500, 4.0, 'Woody', 'Fruity', 'Sweet'),
+    (612, 1, 'Samuel Smith Oatmeal Stout', 6.50, 550, 5.0, 'Sweet', 'Woody', 'Herbal'),
+    (613, 1, 'Left Hand Milk Stout', 6.25, 355, 6.0, 'Herbal', 'Sweet', 'Fruity'),
+    (614, 1, 'Young’s Double Chocolate Stout', 7.00, 500, 5.2, 'Sweet', 'Fruity', 'Herbal'),
+    (615, 1, 'Dragon Stout', 6.75, 355, 7.5, 'Woody', 'Sweet', 'Herbal'),
+    (616, 1, 'Founders Breakfast Stout', 7.25, 355, 8.3, 'Herbal', 'Woody', 'Sweet'),
+    (617, 1, 'Imperial Russian Stout', 8.00, 500, 9.0, 'Sweet', 'Fruity', 'Woody'),
+
+    -- PILSNERS
+    (618, 1, 'Pilsner Urquell', 4.95, 500, 4.4, 'Herbal', 'Fruity', 'Woody'),
+    (619, 1, 'Budvar', 5.75, 330, 5.0, 'Fruity', 'Woody', 'Herbal'),
+    (620, 1, 'Bitburger Pils', 5.25, 500, 4.8, 'Herbal', 'Sweet', 'Woody'),
+    (621, 1, 'Warsteiner', 5.50, 500, 4.8, 'Woody', 'Herbal', 'Sweet'),
+    (622, 1, 'Jever Pilsner', 6.00, 500, 4.9, 'Fruity', 'Sweet', 'Woody'),
+    (623, 1, 'Krombacher Pils', 5.75, 500, 4.8, 'Sweet', 'Woody', 'Fruity'),
+    (624, 1, 'Spaten Pils', 5.50, 500, 5.0, 'Woody', 'Herbal', 'Fruity'),
+    (625, 1, 'Stella Artois Pilsner', 5.95, 500, 5.2, 'Fruity', 'Herbal', 'Sweet'),
+
+    -- ALES
+    (626, 1, 'Pale Ale', 5.25, 355, 5.4, 'Fruity', 'Herbal', 'Sweet'),
+    (627, 1, 'Hazy IPA', 6.50, 355, 6.5, 'Herbal', 'Woody', 'Fruity'),
+    (628, 1, 'Lagunitas IPA', 6.25, 355, 6.2, 'Fruity', 'Herbal', 'Sweet'),
+    (629, 1, 'Stone IPA', 7.00, 355, 6.9, 'Herbal', 'Sweet', 'Woody'),
+    (630, 1, 'Newcastle Brown Ale', 6.00, 500, 4.7, 'Sweet', 'Fruity', 'Woody'),
+    (631, 1, 'Fat Tire Amber Ale', 6.25, 355, 5.2, 'Woody', 'Sweet', 'Fruity'),
+    (632, 1, 'Red Hook ESB', 6.75, 355, 5.8, 'Sweet', 'Herbal', 'Woody'),
+    (633, 1, 'Sierra Nevada Pale Ale', 6.50, 355, 5.6, 'Fruity', 'Woody', 'Sweet'),
+    (634, 1, 'Chimay Blue', 8.25, 330, 9.0, 'Fruity', 'Sweet', 'Woody'),
+    ------------------------------------------------------------------------
     (21, 2, '21 Gables Chenin Blanc', 38.99, 750, 14.5, 'Woody', 'Fruity', 'Fruity'),
     (22, 2, 'I Frati Lugana', 34.99, 750, 13, 'Fruity', 'Sweet', 'Fruity'),
     (23, 2, 'El Enemigo', 39.99, 750, 13.5, 'Woody', 'Fruity', 'Fruity'),
@@ -293,17 +316,45 @@ INSERT INTO non_alcoholic (id, isCarbonated, alcoholicEquivalent) VALUES
 
 -- Beer Data Input --
 INSERT INTO beer(id, beerType, beerOrigin) VALUES
-(1, 'Pale Lagers', 'Mexico City, Mexico'),
-(2, 'Pale Lagers', 'Amsterdam, Netherlands'),
-(3, 'Pale Lagers', 'Leuven, Belgium'),
-(4, 'Stouts', 'Dublin, Ireland'),
-(5, 'Pale Lagers', 'Missouri, USA'),
-(6, 'Pale Lagers', 'Missouri, USA'),
-(7, 'Pale Lagers', 'Colorado, USA'),
-(8, 'Pale Lagers', 'Wisconsin, USA'),
-(9, 'Non-alcoholic Beer', 'Amsterdam, Netherlands'),
-(10, 'Non-alcoholic Beer', 'Mexico City, Mexico');
+-- LAGERS
+(600, 'Lagers', 'Mexico City, Mexico'),
+(601, 'Lagers', 'Amsterdam, Netherlands'),
+(602, 'Lagers', 'St. Louis, USA'),
+(603, 'Lagers', 'Golden, USA'),
+(604, 'Lagers', 'Milwaukee, USA'),
+(605, 'Lagers', 'Tokyo, Japan'),
+(606, 'Lagers', 'Copenhagen, Denmark'),
+(607, 'Lagers', 'Bremen, Germany'),
+(608, 'Lagers', 'Strasbourg, France'),
 
+-- STOUTS
+(609, 'Stouts', 'Dublin, Ireland'),
+(610, 'Stouts', 'Chico, California, USA'),
+(611, 'Stouts', 'Cork, Ireland'),
+(612, 'Stouts', 'Tadcaster, UK'),
+(613, 'Stouts', 'Longmont, Colorado, USA'),
+(614, 'Stouts', 'Jamaica'),
+(615, 'Stouts', 'Michigan, USA'),
+(616, 'Stouts', 'London, UK'),
+
+-- PILSNERS
+(617, 'Pilsners', 'Pilsen, Czech Republic'),
+(618, 'Pilsners', 'Czech Republic'),
+(619, 'Pilsners', 'Bitburg, Germany'),
+(620, 'Pilsners', 'Warstein, Germany'),
+(621, 'Pilsners', 'Jever, Germany'),
+(622, 'Pilsners', 'Krombach, Germany'),
+(623, 'Pilsners', 'Munich, Germany'),
+(624, 'Pilsners', 'Belgium'),
+
+-- ALES
+(625, 'Ales', 'Portland, Oregon, USA'),
+(626, 'Ales', 'San Diego, California, USA'),
+(627, 'Ales', 'Petaluma, California, USA'),
+(628, 'Ales', 'Newcastle, UK'),
+(629, 'Ales', 'Fort Collins, Colorado, USA'),
+(630, 'Ales', 'Brussels, Belgium'),
+(631, 'Ales', 'Leuven, Belgium');
 
 -- Wine Data Input --
 -- (1, 'White'),

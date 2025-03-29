@@ -25,6 +25,7 @@ import com.example.cms.controller.dto.Non_alcoholicDto;
 import com.example.cms.controller.exceptions.Non_AlcoholicNotFoundException;
 import com.example.cms.model.entities.Non_Alcoholic;
 import com.example.cms.model.repositories.Non_AlcoholicRepository;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -37,18 +38,40 @@ public class Non_AlcoholicController {
         this.repository = repository;
     }
 
-    @GetMapping("/alcohol/non-alcoholic/")
+    @GetMapping("/alcohol/non-alcoholic")
     public List<Non_Alcoholic> retrieveAllNon_AlcoholicDrinks() {
         return repository.findAll();
     }
 
     // For recommending Non-alco
-    @PostMapping("/alcohol/non-alcoholic/")
+    @PostMapping("/alcohol/non-alcoholic")
     public List<Non_Alcoholic> non_Alcoholics_rec(@RequestBody Non_alcoholicDto non_alcoholicDto) {
-        return repository.non_alcoholicRec(non_alcoholicDto.getPrice(), non_alcoholicDto.getFlavor(),
-                non_alcoholicDto.getIsCarbonated(), non_alcoholicDto.getAlcoholicEquivalent());
-    }
+        String flavor = non_alcoholicDto.getFlavor();
+        Double quartile = non_alcoholicDto.getPrice();
+        Boolean isCarbonated = non_alcoholicDto.getIsCarbonated();
+        String alcoholicEquivalent = non_alcoholicDto.getAlcoholicEquivalent();
 
+        List<Double> priceList = repository.findPricesByTypeAndFlavor(flavor, isCarbonated, alcoholicEquivalent);
+        List<Double> sortedPrices = priceList.stream().sorted().collect(Collectors.toList());
+
+        if (!sortedPrices.isEmpty()) {
+            int index;
+            if (quartile == 0) {
+                index = (int) (0.35 * sortedPrices.size());
+            } else if (quartile == 1) {
+                index = (int) (0.65 * sortedPrices.size());
+            } else {
+                index = sortedPrices.size() - 1;
+            }
+
+            Double threshold = sortedPrices.get(index);
+            return repository.non_alcoholicRec(threshold, flavor, isCarbonated, alcoholicEquivalent);
+        } else {
+            return List.of();
+        }
+    }
+        
+    
     @GetMapping("/alcohol/non-alcoholic/{id}")
     public Non_Alcoholic retrieveNon_AlcoholicDrink(@PathVariable("id") Long id) {
         return repository.findById(id)
@@ -65,7 +88,6 @@ public class Non_AlcoholicController {
         return repository.findByIsCarbonatedFalse();
     }
     
-
     @GetMapping("/alcohol/non-alcoholic/search")
     public List<Non_Alcoholic> searchAlcoholicEquivalent(@RequestParam String alcoholicEquivalent) {
         return repository.findByAlcoholicEquivalentContainingIgnoreCase(alcoholicEquivalent);

@@ -18,12 +18,11 @@ public interface Non_AlcoholicRepository extends JpaRepository<Non_Alcoholic, Lo
     nativeQuery = true) 
     List<Non_Alcoholic> searchByName(@Param("searchTerm") String searchTerm);
     
-    @Query(value = "SELECT * FROM non_alcoholic WHERE price < :maxPrice", nativeQuery = true) 
-    List<Non_Alcoholic> findUnderPrice(@Param("maxPrice") BigDecimal maxPrice);
-
+    @Query(value = "SELECT price FROM non_alcoholic n JOIN alcohol a ON n.id = a.id WHERE alcoholicEquivalent = :alcoholicEquivalent AND top1flavor = :flavor AND isCarbonated = :isCarbonated ORDER BY price", nativeQuery = true)
+    List<Double> findPricesByTypeAndFlavor(@Param("flavor") String flavor, @Param("isCarbonated") Boolean carbonate, @Param("alcoholicEquivalent") String alcoholicEquivalent);
 
     //Added recommendation
-    @Query(value = "SELECT * FROM non_alcoholic n JOIN alcohol a ON n.id = a.id WHERE alcoholicEquivalent = :alcoholicEquivalent AND top1flavor = :flavor AND price < :price AND isCarbonated = :isCarbonated ORDER BY price", nativeQuery = true)
+    @Query(value = "SELECT * FROM non_alcoholic n JOIN alcohol a ON n.id = a.id WHERE alcoholicEquivalent =:alcoholicEquivalent AND top1flavor = :flavor AND price < :price AND isCarbonated = :isCarbonated ORDER BY price", nativeQuery = true)
     List<Non_Alcoholic> non_alcoholicRec(@Param("price") Double price, @Param("flavor") String flavor, @Param("isCarbonated") Boolean carbonate, @Param("alcoholicEquivalent") String alcoholicEquivalent);
     
     

@@ -12,6 +12,9 @@ import java.util.List;
 
 @Repository
 public interface SpiritRepository extends JpaRepository<Spirit, Long> {
-    @Query(value = "SELECT * FROM SPIRIT s JOIN alcohol a ON s.id = a.id WHERE spirit_type_id = :spiritType AND top1flavor = :flavor AND price < :price ORDER BY price", nativeQuery = true)
+    @Query(value = "SELECT * FROM SPIRIT s JOIN alcohol a ON s.id = a.id WHERE s.spirit_type_id = :spiritType AND a.top1flavor = :flavor AND a.price <= :price ORDER BY price", nativeQuery = true)
     List<Spirit> findSpirit(@Param("spiritType") Long spiritType, @Param("flavor") String flavor, @Param("price") Double price);
+
+    @Query(value = "SELECT price FROM SPIRIT s JOIN alcohol a ON s.id = a.id WHERE s.spirit_type_id = :spiritType AND a.top1flavor = :flavor ORDER BY price", nativeQuery = true)
+    List<Double> findPricesByTypeAndFlavor(@Param("spiritType") Long spiritType, @Param("flavor") String flavor);
 }

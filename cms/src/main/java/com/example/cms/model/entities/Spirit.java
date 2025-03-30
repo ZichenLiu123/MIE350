@@ -23,4 +23,5 @@ public class Spirit {
     @ManyToOne
     @JoinColumn(name = "spirit_type_id", nullable = false)
     private SpiritType spiritType;
+
 }

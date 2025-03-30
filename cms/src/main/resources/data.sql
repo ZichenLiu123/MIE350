@@ -269,8 +269,23 @@ VALUES
     (936, 4, 'Lyre"s Dry London Spirit', 35.00, 700, 0.0, 'Herbal', 'Herbal', 'Sweet'),
     (937, 4, 'Free Spirits Non-Alcoholic Bourbon', 35.00, 750, 0.0, 'Herbal', 'Sweet', 'Woody'),
     (938, 4, 'Arkay Alcohol-Free Whisky', 27.50, 750, 0.0, 'Fruity', 'Fruity', 'Sweet'),
-    (939, 4, 'Fluère Spiced Cane Dark Roast', 30.00, 700, 0.0, 'Fruity', 'Sweet', 'Sweet');
-
+    (939, 4, 'Fluère Spiced Cane Dark Roast', 30.00, 700, 0.0, 'Fruity', 'Sweet', 'Sweet'),
+    (940, 4, 'Erdinger Weissbier Alkoholfrei', 14.19, 500, 0.5, 'Herbal', 'Sweet', 'Fruity'),
+    (941, 4, 'Estrella Galicia 0.0', 13.24, 500, 0.5, 'Herbal', 'Woody', 'Fruity'),
+    (942, 4, 'Flat Tire Non-Alcoholic', 11.99, 500, 0.5, 'Herbal', 'Fruity', 'Sweet'),
+    (943, 4, 'Giesen 0% Sauvignon Blanc', 11.22, 330, 0.0, 'Fruity', 'Fruity', 'Woody'),
+    (944, 4, 'Leitz Eins Zwei Zero Riesling', 10.79, 750, 0.0, 'Fruity', 'Woody', 'Sweet'),
+    (945, 4, 'Noughty Alcohol-Free Sparkling Chardonnay', 10.82, 750, 0.0, 'Fruity', 'Herbal', 'Fruity'),
+    (946, 4, 'Seedlip Garden 108', 14.57, 330, 0.0, 'Herbal', 'Woody', 'Herbal'),
+    (947, 4, 'Ritual Zero Proof Gin Alternative', 15.80, 330, 0.0, 'Herbal', 'Fruity', 'Sweet'),
+    (948, 4, 'Lyre''s Dry London Spirit', 14.18, 750, 0.0, 'Herbal', 'Herbal', 'Fruity'),
+    (949, 4, 'Monday Zero Alcohol Gin', 14.63, 500, 0.0, 'Herbal', 'Fruity', 'Woody'),
+    (950, 4, 'Free Spirits Non-Alcoholic Bourbon', 15.23, 330, 0.0, 'Woody', 'Herbal', 'Sweet'),
+    (951, 4, 'Ariel Cabernet Sauvignon', 12.12, 750, 0.0, 'Fruity', 'Herbal', 'Sweet'),
+    (952, 4, 'Fre Alcohol-Removed Chardonnay', 9.65, 355, 0.0, 'Fruity', 'Sweet', 'Woody'),
+    (953, 4, 'Athletic Brewing Upside Dawn Golden Ale', 10.48, 355, 0.5, 'Herbal', 'Sweet', 'Fruity'),
+    (954, 4, 'BrewDog Nanny State', 12.54, 355, 0.5, 'Herbal', 'Fruity', 'Sweet');
+        
 -- Non Alcoholic Data Input --
 INSERT INTO non_alcoholic (id, isCarbonated, alcoholicEquivalent) VALUES
 (900, TRUE, 'Beer'),
@@ -312,7 +327,22 @@ INSERT INTO non_alcoholic (id, isCarbonated, alcoholicEquivalent) VALUES
 (936, FALSE, 'Spirits'),
 (937, FALSE, 'Spirits'),
 (938, FALSE, 'Spirits'),
-(939, FALSE, 'Spirits');
+(939, FALSE, 'Spirits'),
+(940, TRUE, 'Beer'),
+(941, TRUE, 'Beer'),
+(942, TRUE, 'Beer'),
+(943, FALSE, 'Wine'),
+(944, FALSE, 'Wine'),
+(945, TRUE, 'Wine'),
+(946, FALSE, 'Spirits'),
+(947, FALSE, 'Spirits'),
+(948, FALSE, 'Spirits'),
+(949, FALSE, 'Spirits'),
+(950, FALSE, 'Spirits'),
+(951, FALSE, 'Wine'),
+(952, FALSE, 'Wine'),
+(953, TRUE, 'Beer'),
+(954, TRUE, 'Beer');
 
 -- Beer Data Input --
 INSERT INTO beer(id, beerType, beerOrigin) VALUES

@@ -6,11 +6,16 @@ import com.example.cms.controller.exceptions.WineNotFoundException;
 import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.AlcoholCategory;
 import com.example.cms.model.entities.Wine;
+import com.example.cms.model.entities.WineType;
+import com.example.cms.model.repositories.AlcoholRepository;
+import com.example.cms.model.repositories.CategoryRepository;
 import com.example.cms.model.repositories.WineRepository;
 
+import com.example.cms.model.repositories.WineTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,6 +25,16 @@ public class WineController {
 
     @Autowired
     private final WineRepository repository;
+
+    @Autowired
+    private AlcoholRepository alcoholRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
+    private WineTypeRepository wineTypeRepository;
+
 
     public WineController(WineRepository repository) {
         this.repository = repository;
@@ -32,8 +47,39 @@ public class WineController {
     }
 
     // Create a new wine entry
+    @Transactional
     @PostMapping("/wine")
     public Wine createWine(@RequestBody Wine newWine) {
+        // Create new Alcohol entity
+        Alcohol newAlcohol = new Alcohol();
+        newAlcohol.setId(newWine.getId());
+        newAlcohol.setName("Default");
+
+        // Get category_id for alcohol
+        AlcoholCategory category = categoryRepository.findById(2L)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
+
+        newAlcohol.setCategory_id(category);
+        newAlcohol.setAmount(0);
+        newAlcohol.setPrice(0);
+        newAlcohol.setAbv(0.0);
+        newAlcohol.setTop1Flavor("Unknown");
+        newAlcohol.setTop2Flavor("Unknown");
+        newAlcohol.setTop3Flavor("Unknown");
+
+        // Save new Alcohol entity
+        alcoholRepository.save(newAlcohol);
+
+        System.out.println("Wine ID: " + newWine.getId());
+        System.out.println("WineType ID: " + (newWine.getWineType() != null ? newWine.getWineType().getId() : "null"));
+        System.out.println("Wine Age: " + newWine.getAge());
+
+        WineType wineType = wineTypeRepository.findById(newWine.getWineType().getId())
+                .orElseThrow(() -> new RuntimeException("WineType not found"));
+
+        newWine.setAlcohol(newAlcohol);
+        newWine.setWineType(wineType);
+
         return repository.save(newWine);
     }
 

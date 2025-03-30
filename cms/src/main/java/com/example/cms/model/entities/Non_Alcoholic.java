@@ -17,7 +17,7 @@ public class Non_Alcoholic {
     @Id
     private Long id;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     @MapsId
     private Alcohol alcohol;

@@ -1,5 +1,7 @@
 package com.example.cms.controller;
 
+import com.example.cms.model.entities.Alcohol;
+import com.example.cms.model.entities.AlcoholCategory;
 import com.example.cms.model.entities.Beer;
 import com.example.cms.model.entities.Spirit;
 import com.example.cms.model.repositories.BeerRepository;
@@ -7,6 +9,7 @@ import com.example.cms.controller.dto.BeerDto;
 import com.example.cms.controller.exceptions.BeerNotFoundException;
 import com.example.cms.model.repositories.AlcoholRepository;
 
+import com.example.cms.model.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +23,10 @@ public class BeerController {
     private final BeerRepository repository;
 
     @Autowired
-    private AlcoholRepository alcoholRepository; // Add this
+    private AlcoholRepository alcoholRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public BeerController(BeerRepository repository, AlcoholRepository alcoholRepository) {
         this.repository = repository;
@@ -45,9 +51,37 @@ public class BeerController {
 
     // Post | Create
     @PostMapping("/beer")
-    Beer createBeer(@RequestBody Beer newBeer) {
+    public Beer createBeer(@RequestBody Beer newBeer) {
+
+        // Create new Alcohol entity
+        Alcohol newAlcohol = new Alcohol();
+        newAlcohol.setId(newBeer.getId());
+        newAlcohol.setName("Default");
+
+        // Get category_id for alcohol
+        AlcoholCategory category = categoryRepository.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
+
+        newAlcohol.setCategory_id(category);
+        newAlcohol.setAmount(0);
+        newAlcohol.setPrice(0);
+        newAlcohol.setAbv(0.0);
+        newAlcohol.setTop1Flavor("Unknown");
+        newAlcohol.setTop2Flavor("Unknown");
+        newAlcohol.setTop3Flavor("Unknown");
+
+        // Save new Alcohol entity
+        alcoholRepository.save(newAlcohol);
+
+        // Save new Beer
+        newBeer.setId(newBeer.getId());
+        newBeer.setAlcohol(newAlcohol);
+        newBeer.setBeerOrigin(newBeer.getBeerOrigin());
+        newBeer.setBeerType(newBeer.getBeerType());
+
         return repository.save(newBeer);
     }
+
     // Put | Update
     @PutMapping("/beer/{id}")
     Beer updateBeer(@RequestBody Beer newBeer, @PathVariable("id") long alcoholId) {
@@ -63,12 +97,12 @@ public class BeerController {
     }
 
     // Delete | Delete
-
     @DeleteMapping("/beer/{id}")
     void deleteBeer(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);
     }
 
+    // Get beer pairings
     @PostMapping("/beer/search")
     List<Beer> pairWine(@RequestBody BeerDto beerDto) {
         String beerType = beerDto.getBeerType();

@@ -116,11 +116,7 @@ public class AlcoholController {
                 });
     }
 
-
-
-
     // Delete | Delete
-
     @DeleteMapping("/alcohol/{id}")
     void deleteAlcohol(@PathVariable("id") long alcoholId) {
         repository.deleteById(alcoholId);

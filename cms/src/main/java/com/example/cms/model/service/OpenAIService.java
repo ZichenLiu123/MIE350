@@ -9,7 +9,7 @@ import java.io.IOException;
 @Service
 public class OpenAIService {
 
-    private static final String API_KEY = "YOUR KEY HERE";
+    private static final String API_KEY = "ENTER KEY";
     private static final String API_URL = "https://api.openai.com/v1/chat/completions";
 
     private final OkHttpClient client = new OkHttpClient();

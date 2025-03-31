@@ -1,6 +1,8 @@
 package com.example.cms.controller;
 
+import com.example.cms.controller.dto.PairingDto;
 import com.example.cms.controller.exceptions.PairingNotFoundException;
+import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.Pairing;
 import com.example.cms.model.repositories.PairingRepository;
 
@@ -36,25 +38,25 @@ public class PairingController {
     }
 
     // Post | Create
-    @PostMapping("/pairing")
-    Pairing createPairing(@RequestBody Pairing newPairing) {
-        return repository.save(newPairing);
+    @PostMapping("/pairing/recommend")
+    List<Alcohol> createPairing(@RequestBody PairingDto newPairing) {
+        return repository.findPairingFood(newPairing.getFlavor(), newPairing.getFoodType());
     }
     // Put | Update
     @PutMapping("/pairing/{id}")
-    Pairing updatePairing(@RequestBody Pairing newPairing, @PathVariable("id") long pairingId) {
-        return repository.findById(pairingId)
-                .map(pairing -> { // need to add partial update features later
-                    pairing.setCategory(newPairing.getCategory());
-                    pairing.setFood(newPairing.getFood());
-                    pairing.setRecommend_Rank(newPairing.getRecommend_Rank());
-                    pairing.setMatch_flavour(newPairing.getMatch_flavour());
-                    return repository.save(newPairing);
-                })
-                .orElseGet(() -> {
-                    return repository.save(newPairing);
-                });
-    }
+//    Pairing updatePairing(@RequestBody Pairing newPairing, @PathVariable("id") long pairingId) {
+//        return repository.findById(pairingId)
+//                .map(pairing -> { // need to add partial update features later
+//                    pairing.setCategory(newPairing.getCategory());
+//                    pairing.setFood(newPairing.getFood());
+//                    pairing.setRecommend_Rank(newPairing.getRecommend_Rank());
+//                    pairing.setMatch_flavour(newPairing.getMatch_flavour());
+//                    return repository.save(newPairing);
+//                })
+//                .orElseGet(() -> {
+//                    return repository.save(newPairing);
+//                });
+//    }
 
     // Delete | Delete
 

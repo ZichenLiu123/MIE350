@@ -3,6 +3,7 @@ package com.example.cms.model.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,15 +18,9 @@ public class Pairing{
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private AlcoholCategory category;
+    @JoinColumn(name = "alcohol_category_id")
+    private AlcoholCategory alcohol_category;
 
-    @ManyToOne
-    @JoinColumn(name = "food_id")
-    private Food food;
-
-    @NotNull
-    private Integer recommend_Rank;
-
-    private String match_flavour;
+    @Nullable
+    private String food_type;
 }

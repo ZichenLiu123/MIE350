@@ -4,6 +4,7 @@ import com.example.cms.controller.dto.PairingDto;
 import com.example.cms.controller.exceptions.PairingNotFoundException;
 import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.Pairing;
+import com.example.cms.model.repositories.AlcoholRepository;
 import com.example.cms.model.repositories.PairingRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ import java.util.List;
 public class PairingController {
     @Autowired
     private final PairingRepository repository;
+
+    @Autowired
+    private AlcoholRepository alcoholRepository;
 
     public PairingController(PairingRepository repository) {
         this.repository = repository;
@@ -40,7 +44,12 @@ public class PairingController {
     // Post | Create
     @PostMapping("/pairing/recommend")
     List<Alcohol> createPairing(@RequestBody PairingDto newPairing) {
-        return repository.findPairingFood(newPairing.getFlavor(), newPairing.getFoodType());
+        List<Long> alcoholIds = repository.findPairingFoodIds(
+                newPairing.getFlavor(),
+                newPairing.getFoodType()
+        );
+
+        return alcoholRepository.findAllById(alcoholIds);
     }
     // Put | Update
     @PutMapping("/pairing/{id}")

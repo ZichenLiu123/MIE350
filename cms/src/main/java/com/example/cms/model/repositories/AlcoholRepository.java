@@ -36,4 +36,5 @@ public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
     @Query(value = "SELECT * FROM alcohol WHERE category_id = :categoryId AND top1Flavor = :top1Flavor", nativeQuery = true)
     List<Alcohol> findByCategoryIdAndTop1Flavor(@Param("categoryId") Long categoryId, @Param("top1Flavor") String top1Flavor);
 
+
 }

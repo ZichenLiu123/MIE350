@@ -11,6 +11,7 @@ import com.example.cms.model.entities.Spirit;
 import com.example.cms.model.entities.Spirit;
 import com.example.cms.model.entities.Wine;
 import com.example.cms.model.repositories.SpiritRepository;
+import com.example.cms.model.repositories.SpiritTypeRepository;
 import com.example.cms.model.repositories.AlcoholRepository;
 import com.example.cms.model.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,15 @@ public class SpiritController {
     private final AlcoholRepository alcoholRepository;
 
     @Autowired
+    private final SpiritTypeRepository spiritTypeRepository;
+
+    @Autowired
     private CategoryRepository categoryRepository;
 
-    public SpiritController(SpiritRepository repository, AlcoholRepository alcoholRepository) {
+    public SpiritController(SpiritRepository repository, AlcoholRepository alcoholRepository, SpiritTypeRepository spiritTypeRepository) {
         this.repository = repository;
         this.alcoholRepository = alcoholRepository;
+        this.spiritTypeRepository = spiritTypeRepository;
     }
 
     // GET & POST & DELETE automatically built in Spring Repo. fns
@@ -51,43 +56,7 @@ public class SpiritController {
                 .orElseThrow(() -> new SpiritNotFoundException(spiritId));
     }
 
-    @PostMapping("/spirit")
-    public Spirit createSpirit(@RequestBody Spirit newSpirit) {
-
-        // Create new Alcohol entity
-        Alcohol newAlcohol = new Alcohol();
-        newAlcohol.setId(newSpirit.getId());
-        newAlcohol.setName(newSpirit.getAlcohol().getName());
-
-        // Get category_id for alcohol
-        AlcoholCategory category = categoryRepository.findById(3L)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
-
-        newAlcohol.setCategory_id(category);
-        //newAlcohol.setAmount(newSpirit.getAlcohol().getAmount());
-        //newAlcohol.setPrice(newSpirit.getAlcohol().getPrice());
-        //newAlcohol.setAbv(newSpirit.getAlcohol().getAbv());
-        //newAlcohol.setTop1Flavor(newSpirit.getAlcohol().getTop1Flavor());
-        //newAlcohol.setTop2Flavor("Unknown");
-        //newAlcohol.setTop3Flavor("Unknown");
-        newAlcohol.setCategory_id(category);
-        newAlcohol.setAmount(0);
-        newAlcohol.setPrice(0);
-        newAlcohol.setAbv(0.0);
-        newAlcohol.setTop1Flavor("Unknown");
-        newAlcohol.setTop2Flavor("Unknown");
-        newAlcohol.setTop3Flavor("Unknown");
-
-        // Save new Alcohol entity
-        alcoholRepository.save(newAlcohol);
-
-        // Save new Spirit
-        newSpirit.setId(newSpirit.getId());
-        newSpirit.setAlcohol(newAlcohol);
-        newSpirit.setSpiritType(newSpirit.getSpiritType());
-
-        return repository.save(newSpirit);
-    }
+ 
 
 
     // Put | Update
@@ -96,13 +65,15 @@ public class SpiritController {
         return repository.findById(alcoholId)
                 .map(spirit -> { // need to add partial update features later
                     spirit.setSpiritType(newSpirit.getSpiritType());
-                    return repository.save(newSpirit);
+                    return repository.save(spirit);
                 })
                 .orElseGet(() -> {
                     return repository.save(newSpirit);
                 });
     }
-
+   
+    
+  
     // Delete | Delete
     @DeleteMapping("/spirit/{id}")
     void deleteSpirit(@PathVariable("id") long alcoholId) {

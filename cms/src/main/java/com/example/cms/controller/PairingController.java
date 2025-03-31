@@ -37,11 +37,7 @@ public class PairingController {
                 .orElseThrow(() -> new PairingNotFoundException(pairingId));
     }
 
-    // Post | Create
-    @PostMapping("/pairing/recommend")
-    List<Alcohol> createPairing(@RequestBody PairingDto newPairing) {
-        return repository.findPairingFood(newPairing.getFlavor(), newPairing.getFoodType());
-    }
+
     // Put | Update
     @PutMapping("/pairing/{id}")
 //    Pairing updatePairing(@RequestBody Pairing newPairing, @PathVariable("id") long pairingId) {

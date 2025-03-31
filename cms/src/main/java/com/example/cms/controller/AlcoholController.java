@@ -1,6 +1,7 @@
 package com.example.cms.controller;
 
 import com.example.cms.controller.dto.AlcoholDto;
+import com.example.cms.controller.dto.PairingDto;
 import com.example.cms.controller.exceptions.AlcoholNotFoundException;
 import com.example.cms.model.entities.Alcohol;
 import com.example.cms.model.entities.AlcoholCategory;
@@ -114,7 +115,6 @@ public class AlcoholController {
                     return repository.save(newAlcohol);
                 });
     }
-
 
 
 

@@ -84,14 +84,14 @@ public class WineController {
     }
 
     // Retrieve a specific wine by ID
-    @GetMapping("wine/{id}")
+    @GetMapping("/wine/{id}")
     public Wine retrieveWine(@PathVariable("id") Long wineId) {
         return repository.findById(wineId)
                 .orElseThrow(() -> new WineNotFoundException(wineId));
     }
 
     // Update an existing wine by ID
-    @PutMapping("wine/{id}")
+    @PutMapping("/wine/{id}")
     public Wine updateWine(@RequestBody Wine newWine, @PathVariable("id") Long wineId) {
         return repository.findById(wineId)
                 .map(wine -> {
@@ -145,7 +145,7 @@ public class WineController {
     }
 
     // Delete a wine by ID
-    @DeleteMapping("wine/{id}")
+    @DeleteMapping("/wine/{id}")
     public void deleteWine(@PathVariable("id") Long wineId) {
         repository.deleteById(wineId);
     }

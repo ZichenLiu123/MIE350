@@ -14,6 +14,9 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
+import javax.persistence.EntityManager;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -92,8 +95,43 @@ class SpiritTests {
 			// Verify the spirit has the expected properties
 			assertTrue(spirit.has("id"), "Spirit should have an ID");
 			assertTrue(spirit.has("spiritType"), "Spirit should have a spiritType");
-	}
-}
+	}}
+	@Test
+	@Transactional
+    void addThenDeleteSpirits() throws Exception {
+        ObjectNode spiritJson = objectMapper.createObjectNode();
+        spiritJson.put("id", 303L);
+
+        ObjectNode spiritTypeJson = objectMapper.createObjectNode();
+        spiritTypeJson.put("id", 6);
+
+        spiritJson.set("spiritType", spiritTypeJson);
+
+        // Perform POST request to add a Wine
+        MockHttpServletResponse addResponse = mockMvc.perform(
+                        post("/spirit")
+                                .contentType("application/json")
+                                .content(spiritJson.toString()))
+                .andReturn().getResponse();
+
+        // Assert POST was successful
+        assertEquals(200, addResponse.getStatus());
+        assertTrue(spiritRepository.findById(303L).isPresent());
+
+		// Perform DELETE request to remove the Spirit
+        MockHttpServletResponse deleteResponse = mockMvc.perform(
+                        delete("/spirit/303")
+                                .contentType("application/json"))
+                .andReturn().getResponse();
+
+        // Assert DELETE was successful
+        assertEquals(200, deleteResponse.getStatus());
+        assertTrue(spiritRepository.findById(303L).isEmpty());
+
+    }
+
+
+
 
 	// test updating spirit
 	@Test

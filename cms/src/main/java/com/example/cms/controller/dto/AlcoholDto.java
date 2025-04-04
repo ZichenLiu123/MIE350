@@ -7,7 +7,8 @@ import lombok.Setter;
 @Setter
 public class AlcoholDto {
     private Long id;
-    private String category; // find by name of category instead of number
+    private Long categoryId; // find by name of category instead of number
+    private String categoryName;
     private Long amount;
     private String name;
     private Long price;

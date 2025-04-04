@@ -663,3 +663,8 @@ VALUES
 (3, 2, 'Carbs'),    -- Wine works well with pasta, pizza, and risotto
 (4, 1, 'Comfort'),  -- Beer is a great match for burgers, fried food, and ramen
 (5, 2, 'Dessert');  -- Sweet wines like Riesling or Moscato complement desserts
+
+INSERT  INTO users (username, password, isAdmin)
+VALUES
+('hamood', 'habibi', TRUE),
+('xin', 'zhao', FALSE);

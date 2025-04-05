@@ -100,6 +100,9 @@ public class WineController {
                     return repository.save(wine);
                 })
                 .orElseGet(() -> {
+                    Alcohol alcohol = alcoholRepository.findById(wineId)
+                            .orElseThrow(() -> new RuntimeException("Alcohol not found with id: " + wineId));
+                    newWine.setAlcohol(alcohol);
                     return repository.save(newWine);
                 });
     }

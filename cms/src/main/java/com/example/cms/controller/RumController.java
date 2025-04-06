@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/spirit/rum")
+@RequestMapping("/rum")
 public class RumController {
     private final AlcoholRepository Arepository;
 

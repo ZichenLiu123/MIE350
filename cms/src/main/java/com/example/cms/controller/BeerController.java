@@ -89,9 +89,12 @@ public class BeerController {
                 .map(beer -> { // need to add partial update features later
                     beer.setBeerType(newBeer.getBeerType());
                     beer.setBeerOrigin(newBeer.getBeerOrigin());
-                    return repository.save(newBeer);
+                    return repository.save(beer);
                 })
                 .orElseGet(() -> {
+                    Alcohol alcohol = alcoholRepository.findById(alcoholId)
+                            .orElseThrow(() -> new RuntimeException("Alcohol not found with id: " + alcoholId));
+                    newBeer.setAlcohol(alcohol);
                     return repository.save(newBeer);
                 });
     }

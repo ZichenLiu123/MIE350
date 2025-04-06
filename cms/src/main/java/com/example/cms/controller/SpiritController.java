@@ -104,6 +104,9 @@ public class SpiritController {
                     return repository.save(spirit);
                 })
                 .orElseGet(() -> {
+                    Alcohol alcohol = alcoholRepository.findById(alcoholId)
+                            .orElseThrow(() -> new RuntimeException("Alcohol not found with id: " + alcoholId));
+                    newSpirit.setAlcohol(alcohol);
                     return repository.save(newSpirit);
                 });
     }
@@ -112,7 +115,7 @@ public class SpiritController {
   
     // Delete | Delete
     @DeleteMapping("/spirit/{id}")
-    void deleteSpirit(@PathVariable("id") long alcoholId) {
+    void deleteSpirit(@PathVariable("id") Long alcoholId) {
         repository.deleteById(alcoholId);
 
     }

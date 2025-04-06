@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/spirit/whisky")
+@RequestMapping("/whiskey")
 public class WhiskyController {
     @Autowired
     private final WhiskyRepository repository;

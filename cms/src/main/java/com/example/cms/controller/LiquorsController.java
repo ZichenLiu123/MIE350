@@ -21,7 +21,7 @@ import com.example.cms.model.repositories.LiquorsRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/alcohol/spirit/liquors")
+@RequestMapping("/liquors")
 
 public class LiquorsController {
     private final LiquorsRepository repository;
